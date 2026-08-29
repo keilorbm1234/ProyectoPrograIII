@@ -15,6 +15,7 @@
     </properties>
 
     <dependencies>
+        <!-- JAXB (Persistencia XML) -->
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
@@ -26,12 +27,14 @@
             <version>4.0.5</version>
         </dependency>
 
+        <!-- Selector de Fechas (LGoodDatePicker) -->
         <dependency>
             <groupId>com.github.lgooddatepicker</groupId>
             <artifactId>LGoodDatePicker</artifactId>
             <version>11.2.1</version>
         </dependency>
 
+        <!-- Generación de PDF (iText 7 según especificación del curso) -->
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itext7-core</artifactId>
@@ -39,6 +42,7 @@
             <type>pom</type>
         </dependency>
 
+        <!-- Pruebas JUnit Jupiter -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -48,13 +52,16 @@
     </dependencies>
 
     <build>
+        <!-- Le indica a Maven que el código fuente está en la carpeta 'src' -->
+        <sourceDirectory>src</sourceDirectory>
         <plugins>
+            <!-- Pruebas Unitarias -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
-
+            <!-- Pruebas de Integración -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
