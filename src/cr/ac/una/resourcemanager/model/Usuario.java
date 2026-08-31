@@ -1,16 +1,8 @@
 package cr.ac.una.resourcemanager.model;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlTransient;
-
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Usuario {
     protected String id;
-
-    @XmlTransient
     protected String clave;
-    protected String rol; //Puede ser un administrador o un funcionario
 
     public Usuario() {}
 
