@@ -1,4 +1,4 @@
-package cr.ac.una.resourcemanager.view;
+package cr.ac.una.resourcemanager.view.sistema;
 
 import javax.swing.*;
 
