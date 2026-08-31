@@ -29,6 +29,9 @@ public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
 
     @Override
     public void create(Funcionario entity) throws Exception {
+        if(read(entity.getId()).isPresent()) {
+            throw new Exception("Ya existe un funcionario con el ID: " + entity.getId());
+        }
         this.funcionarios.add(entity);
         guardarEnXml();
     }
@@ -52,6 +55,7 @@ public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
                 return;
             }
         }
+        throw new Exception("No existe un funcionario con el ID: " + entity.getId());
     }
 
     @Override
@@ -63,10 +67,19 @@ public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
                 return;
             }
         }
+        throw new Exception("Funcionario no encontrado para eliminar con ID: " + id);
     }
 
     @Override
     public List<Funcionario> readAll() throws Exception {
         return new ArrayList<>(this.funcionarios);
+    }
+
+    public Optional<Funcionario> encontrarPorContrasena(String id, String clave){
+        if(id == null || clave == null) {
+            return Optional.empty();
+        }
+        return this.funcionarios.stream().filter(f-> id.equals(f.getId())
+                && clave.equals(f.getClave())).findFirst();
     }
 }
