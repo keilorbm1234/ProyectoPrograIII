@@ -41,6 +41,12 @@
             <version>7.2.3</version>
             <type>pom</type>
         </dependency>
+        <!-- Para los Graficos -->
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.5.4</version>
+        </dependency>
 
         <!-- Pruebas JUnit Jupiter -->
         <dependency>

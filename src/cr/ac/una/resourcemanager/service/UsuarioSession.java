@@ -1,5 +1,5 @@
 package cr.ac.una.resourcemanager.service;
 
-public class UsuarioSesion {
+public class UsuarioSession {
 
 }
