@@ -1,5 +1,8 @@
 package cr.ac.una.resourcemanager.view.sistema;
 
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.TimePicker;
+
 import javax.swing.*;
 
 public class View {
@@ -58,5 +61,58 @@ public class View {
     private JLabel CategoriaLabelRec;
     private JLabel DescRecLabel;
     private JLabel ListadoLabel2;
+    private JLabel FiltrosLabelCal;
+    private JComboBox CatComboBoxCal;
+    private JButton cargarButton;
+    private JButton imprimirButton3;
+    private JTable CalRectable;
+    private JLabel CatLabelCal;
+    private JLabel CalRecLabel;
+    private JButton cargarButton1;
+    private JButton imprimirButton4;
     private JScrollPane RecListadoTable;
+    private JTable CalActTable;
+    private JLabel SemanaLabel;
+    private JLabel FRLabel;
+    private DatePicker FechaReferencia;
+    private JLabel ASLabel;
+    private JButton cargarButton2;
+    private JTable Estadisticastable;
+    private JButton cargarButton3;
+    private JTable Estadisticastable1;
+    private JLabel RecLabelEst;
+    private JLabel ActLabelEst;
+    private JLabel FechaDHLabel;
+    private JLabel FechaDHLabel1;
+    private DatePicker Desdedate;
+    private DatePicker HastaDate;
+    private DatePicker Desdedate1;
+    private DatePicker Hastadate1;
+    private JLabel Estadisticaslabel;
+    private JLabel Estadisticaslabel1;
+    private JLabel GraficoLabel;
+    private JLabel GraficoLabel1;
+    private JButton imprimirButton5;
+    private JTextField fraseTextField;
+    private JButton extraerButton;
+    private JTextField actividadTextField;
+    private JList catList;
+    private JButton cancelarReservaSeleccionadaButton;
+    private JButton reservarButton;
+    private JButton limpiarButton3;
+    private JTable misReservastable;
+    private JLabel NuevaReservaLabel;
+    private JLabel fraselabel;
+    private JLabel actividadLabel;
+    private JLabel fechaLabel;
+    private DatePicker fechaPicker;
+    private JLabel hInicioLabel;
+    private TimePicker hInicioPicker;
+    private JLabel multLabel;
+    private TimePicker hFinPicker;
+    private JLabel hFinLabel;
+    private JLabel catLabel;
+    private JLabel misReservasLabel;
+    private JPanel panelGraficoRecursos;
+    private JPanel panelGraficoActividades;
 }
