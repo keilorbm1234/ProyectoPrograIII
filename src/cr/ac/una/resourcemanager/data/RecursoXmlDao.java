@@ -6,6 +6,7 @@ import cr.ac.una.resourcemanager.logic.ListaRecursos;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class RecursoXmlDao implements DAO<Recurso, String> {
     private static final String rutaArchivo = "data/Recursos.xml";
@@ -20,16 +21,20 @@ public class RecursoXmlDao implements DAO<Recurso, String> {
         }
     }
 
-    public void guardarEnXml(){
-        ListaRecursos coleccion = new ListaRecursos();
-        coleccion.setRecursos(this.recursos);
-        XmlManager.guardar(coleccion, rutaArchivo, ListaRecursos.class);
+    public void guardarEnXml() throws PersistenceException{
+        try {
+            ListaRecursos coleccion = new ListaRecursos();
+            coleccion.setRecursos(this.recursos);
+            XmlManager.guardar(coleccion, rutaArchivo, ListaRecursos.class);
+        } catch (Exception e) {
+            throw new PersistenceException("Error al guardar en el archivo XML de Recursos: " + e.getMessage());
+        }
     }
 
     @Override
     public void create(Recurso entity) throws Exception {
         if(read(entity.getId()).isPresent()) {
-            throw new Exception("Ya existe un recurso registrado con el ID" + entity.getId());
+            throw new DuplicateEntityException("Ya existe un recurso registrado con el ID: " + entity.getId());
         }
         this.recursos.add(entity);
         guardarEnXml();
@@ -54,7 +59,7 @@ public class RecursoXmlDao implements DAO<Recurso, String> {
                 return;
             }
         }
-        throw new Exception("No existe un recurso registrado con el ID" + entity.getId());
+        throw new PersistenceException("No existe un recurso registrado con el ID: " + entity.getId());
     }
 
     @Override
@@ -66,11 +71,20 @@ public class RecursoXmlDao implements DAO<Recurso, String> {
                 return;
             }
         }
-        throw new Exception("Recurso no encontrado para eliminar con el ID" + id);
+        throw new PersistenceException("Recurso no encontrado para eliminar con el ID: " + id);
     }
 
     @Override
     public List<Recurso> readAll() throws Exception {
         return new ArrayList<>(this.recursos);
+    }
+
+    //Filtrar recursos segun la categoria
+    public List<Recurso> filtrarPorCategoria(String categoria){
+        if(categoria == null || categoria.trim().isEmpty()){
+            return  new ArrayList<>(this.recursos); //Devuelve todos los recursos
+        }
+        return this.recursos.stream()
+                .filter(r -> r.getCategoria() != null && r.getCategoria().getId().equals(categoria)).collect(Collectors.toList());
     }
 }

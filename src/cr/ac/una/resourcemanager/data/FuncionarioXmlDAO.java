@@ -6,6 +6,7 @@ import cr.ac.una.resourcemanager.logic.ListaFuncionarios;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
     private static final String rutaArchivo = "data/Funcionarios.xml";
@@ -21,15 +22,19 @@ public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
     }
 
     private void guardarEnXml(){
-        ListaFuncionarios coleccion = new ListaFuncionarios();
-        coleccion.setFuncionarios(this.funcionarios);
-        XmlManager.guardar(coleccion, rutaArchivo, ListaFuncionarios.class);
+        try {
+            ListaFuncionarios coleccion = new ListaFuncionarios();
+            coleccion.setFuncionarios(this.funcionarios);
+            XmlManager.guardar(coleccion, rutaArchivo, ListaFuncionarios.class);
+        } catch (Exception e){
+          throw new PersistenceException("Error al guardar en el archivo XML de Funcionarios: " + e.getMessage());
+        }
     }
 
     @Override
     public void create(Funcionario entity) throws Exception {
         if(read(entity.getId()).isPresent()) {
-            throw new Exception("Ya existe un funcionario con el ID: " + entity.getId());
+            throw new DuplicateEntityException("Ya existe un funcionario con el ID: " + entity.getId());
         }
         this.funcionarios.add(entity);
         guardarEnXml();
@@ -54,7 +59,7 @@ public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
                 return;
             }
         }
-        throw new Exception("No existe un funcionario con el ID: " + entity.getId());
+        throw new PersistenceException("No existe un funcionario con el ID: " + entity.getId());
     }
 
     @Override
@@ -66,7 +71,7 @@ public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
                 return;
             }
         }
-        throw new Exception("Funcionario no encontrado para eliminar con ID: " + id);
+        throw new PersistenceException("Funcionario no encontrado para eliminar con ID: " + id);
     }
 
     @Override
@@ -80,5 +85,17 @@ public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
         }
         return this.funcionarios.stream().filter(f-> id.equals(f.getId())
                 && clave.equals(f.getClave())).findFirst();
+    }
+
+    //Buscar por ID o nombre
+    public List<Funcionario> buscarPorIdONombre(String busqueda){
+        if(busqueda == null || busqueda.trim().isEmpty()){
+            return new ArrayList<>(this.funcionarios);
+        }
+        String searchLower = busqueda.toLowerCase();
+        return this.funcionarios.stream()
+                .filter(f-> f.getId().toLowerCase().contains(searchLower)
+                        || f.getNombre().toLowerCase().contains(searchLower))
+                .collect(Collectors.toList());
     }
 }

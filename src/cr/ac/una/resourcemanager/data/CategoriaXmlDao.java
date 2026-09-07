@@ -6,6 +6,7 @@ import cr.ac.una.resourcemanager.logic.ListaCategorias;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CategoriaXmlDao implements DAO<Categoria, String>{
     private static final String rutaArchivo = "data/Categorias.xml";
@@ -21,15 +22,19 @@ public class CategoriaXmlDao implements DAO<Categoria, String>{
     }
 
     public void guardarEnXml(){
-        ListaCategorias coleccion = new ListaCategorias();
-        coleccion.setCategorias(this.categorias);
-        XmlManager.guardar(coleccion, rutaArchivo, ListaCategorias.class);
+        try {
+            ListaCategorias coleccion = new ListaCategorias();
+            coleccion.setCategorias(this.categorias);
+            XmlManager.guardar(coleccion, rutaArchivo, ListaCategorias.class);
+        } catch (Exception e) {
+            throw new PersistenceException("Error al guardar en el archivo XML: " + e.getMessage());
+        }
     }
 
     @Override
     public void create(Categoria entity) throws Exception {
         if(read(entity.getId()).isPresent()) {
-            throw new Exception("Ya existe una categoria con ese id" + entity.getId());
+            throw new DuplicateEntityException("Ya existe una categoria con el ID: " + entity.getId());
         }
         this.categorias.add(entity);
         guardarEnXml();
@@ -54,7 +59,7 @@ public class CategoriaXmlDao implements DAO<Categoria, String>{
                 return;
             }
         }
-        throw new Exception("No existe una categoria con ese id" + entity.getId());
+        throw new PersistenceException("No existe una categoria con el ID: " + entity.getId());
     }
 
     @Override
@@ -66,11 +71,30 @@ public class CategoriaXmlDao implements DAO<Categoria, String>{
                 return;
             }
         }
-        throw new Exception("Categoria no encontrada para eliminar con el id" + id);
+        throw new PersistenceException("Categoria no encontrada para eliminar con el ID: " + id);
     }
 
     @Override
     public List<Categoria> readAll() throws Exception {
         return new ArrayList<>(this.categorias);
+    }
+
+    //Buscar por descripcion
+    public List<Categoria> buscarPorDescripcion(String descripcion){
+        if(descripcion == null || descripcion.trim().isEmpty()){
+            return new ArrayList<>(this.categorias);
+        }
+        String searchLower = descripcion.toLowerCase();
+        return this.categorias.stream()
+                .filter(c-> c.getDescripcion().toLowerCase().contains(searchLower))
+                .collect(Collectors.toList());
+    }
+
+    //Autogeneracion de ID
+    public String obtenerUltimoId(){
+        if(this.categorias.isEmpty()){
+            return null;
+        }
+        return this.categorias.get(this.categorias.size()-1).getId();
     }
 }
