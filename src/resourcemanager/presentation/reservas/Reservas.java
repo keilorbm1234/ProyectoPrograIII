@@ -13,6 +13,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
 
 
 public class Reservas extends Component {
@@ -38,6 +40,10 @@ public class Reservas extends Component {
     private JLabel categoriasLabel;
     private JLabel misReservasLabel;
     private ControllerReservas controllerReservas;
+
+    public Reservas(){
+        imprimirButton.addActionListener(e -> imprimir());
+    }
 
     public void mostrarMensajeExito(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -95,6 +101,23 @@ public class Reservas extends Component {
             } catch (Exception ex) {
                 mostrarError("Error al procesar el formulario: " + ex.getMessage());
             }
+        }
+    }
+
+    private void imprimir() {
+        if (controllerReservas != null) return;
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("mis_reservas.pdf"));
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivo PDF", "pdf"));
+
+        int seleccion = fileChooser.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            String destino = fileChooser.getSelectedFile().getAbsolutePath();
+            if (!destino.toLowerCase().endsWith(".pdf")) {
+                destino += ".pdf";
+            }
+            controllerReservas.imprimirReservas(destino, misReservasTable);
         }
     }
 }

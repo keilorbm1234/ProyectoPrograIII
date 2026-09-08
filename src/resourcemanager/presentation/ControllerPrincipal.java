@@ -4,7 +4,6 @@ import resourcemanager.data.ReservaXmlDao;
 import resourcemanager.logic.Funcionario;
 import resourcemanager.logic.ReservaService;
 import resourcemanager.presentation.login.SessionManager;
-import resourcemanager.logic.Usuario;
 import resourcemanager.logic.UsuarioSession;
 import resourcemanager.presentation.login.ViewLogin;
 import resourcemanager.presentation.recursos.ControllerRecursos;
@@ -55,7 +54,7 @@ public class ControllerPrincipal {
         try {
             RecursoXmlDao recursoDao = new RecursoXmlDao();
             ModelRecurso modelRecurso = new ModelRecurso();
-            Recursos vistaRecursos = new Recursos(); // Asumiendo que la vista existe
+            Recursos vistaRecursos = new Recursos();
 
             ControllerRecursos controllerRecursos = new ControllerRecursos(
                     modelRecurso,
@@ -63,7 +62,8 @@ public class ControllerPrincipal {
                     recursoDao
             );
 
-            // vistaRecursos.setController(controllerRecursos);
+            vistaRecursos.setControllerRecursos(controllerRecursos);
+
 
             JDialog ventanaContainer = new JDialog(view, "Gestión de Recursos", true);
             ventanaContainer.getContentPane().add(vistaRecursos);
@@ -79,10 +79,7 @@ public class ControllerPrincipal {
     private void abrirFuncionarios() {
         if (!SessionManager.esAdmin()) {
             view.mostrarMensaje("Acceso denegado: No tiene permisos de administrador.");
-            return;
         }
-
-        // Aquí abrirás el JDialog de Funcionarios
     }
 
         private void abrirReservas() {
@@ -106,7 +103,7 @@ public class ControllerPrincipal {
                 vistaReservas.setControllerReservas(controllerReservas);
 
                 JDialog ventanaContainer = new JDialog(view, "Gestión de Reservas", true);
-                ventanaContainer.getContentPane().add(vistaReservas); // Agregamos tu Component
+                ventanaContainer.getContentPane().add(vistaReservas);
                 ventanaContainer.pack();
                 ventanaContainer.setLocationRelativeTo(view);
                 ventanaContainer.setVisible(true);
