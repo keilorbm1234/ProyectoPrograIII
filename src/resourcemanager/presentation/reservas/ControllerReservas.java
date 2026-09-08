@@ -1,8 +1,8 @@
-package cr.ac.una.resourcemanager.presentation.reservas;
+package resourcemanager.presentation.reservas;
 
-import cr.ac.una.resourcemanager.data.RecursoXmlDao;
-import cr.ac.una.resourcemanager.logic.*;
-import cr.ac.una.resourcemanager.data.ReservaXmlDao;
+import resourcemanager.data.RecursoXmlDao;
+import resourcemanager.logic.*;
+import resourcemanager.data.ReservaXmlDao;
 
 
 import java.beans.PropertyChangeListener;

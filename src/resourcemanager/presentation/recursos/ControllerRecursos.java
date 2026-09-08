@@ -1,6 +1,6 @@
-package cr.ac.una.resourcemanager.presentation.recursos;
-import cr.ac.una.resourcemanager.data.RecursoXmlDao;
-import cr.ac.una.resourcemanager.logic.Recurso;
+package resourcemanager.presentation.recursos;
+import resourcemanager.data.RecursoXmlDao;
+import resourcemanager.logic.Recurso;
 import java.util.List;
 public class ControllerRecursos {
     private final ModelRecurso model;

@@ -1,17 +1,25 @@
 package resourcemanager.logic;
 
+import resourcemanager.data.RecursoXmlDao;
 import resourcemanager.data.ReservaXmlDao;
 import resourcemanager.data.DuplicateEntityException;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ReservaService {
     private final ReservaXmlDao reservaXmlDao;
+    private final RecursoXmlDao recursoXmlDao;
 
-    public ReservaService(ReservaXmlDao reservaXmlDao) {
+    public ReservaService(ReservaXmlDao reservaXmlDao, RecursoXmlDao recursoXmlDao) {
         this.reservaXmlDao = reservaXmlDao;
+        this.recursoXmlDao = recursoXmlDao;
     }
 
     public void crearReserva(Reserva nueva) throws Exception {
@@ -89,7 +97,7 @@ public class ReservaService {
             throw new ValidationException("Debe asignar al menos un recurso a la reserva.");
         }
 
-        // Obtener la lista directa desde ListaReservas
+
         List<Reserva> todas = reservaXmlDao.readAll();
 
         for (Reserva existente : todas) {
@@ -114,7 +122,7 @@ public class ReservaService {
         }
     }
     private void validarDisponibilidadYHorario(Reserva nueva) throws ValidationException {
-        // 1. Validaciones básicas de horario
+
         if (nueva.getFecha() == null || nueva.getFecha().isBefore(LocalDate.now())) {
             throw new ValidationException("La fecha de la reserva no puede ser en el pasado.");
         }
@@ -128,7 +136,7 @@ public class ReservaService {
             throw new ValidationException("Debe asignar al menos un recurso a la reserva.");
         }
 
-        // 2. Obtener todas las reservas registradas desde el DAO
+
         List<Reserva> reservasExistentes;
         try {
             reservasExistentes = reservaXmlDao.readAll();
@@ -136,22 +144,22 @@ public class ReservaService {
             throw new ValidationException("Error al consultar la disponibilidad de reservas.", e);
         }
 
-        // 3. Evaluar conflictos con otras reservas
+
         for (Reserva existente : reservasExistentes) {
-            // Ignorar si es la misma reserva (al modificar) o si está cancelada
+
             if (existente.getId().equals(nueva.getId()) || "CANCELADA".equalsIgnoreCase(existente.getEstado())) {
                 continue;
             }
 
-            // Si coinciden en la misma fecha
+
             if (existente.getFecha().equals(nueva.getFecha())) {
 
-                // Condición matemática de solapamiento: (InicioA < FinB) Y (FinA > InicioB)
+
                 boolean haySolapamientoHorario = nueva.getHoraInicio().isBefore(existente.getHoraFin())
                         && nueva.getHoraFin().isAfter(existente.getHoraInicio());
 
                 if (haySolapamientoHorario) {
-                    // Verificar si alguno de los recursos solicitados ya está ocupado en la reserva existente
+
                     for (Recurso recursoNuevo : nueva.getRecursosAsignados()) {
                         for (Recurso recursoExistente : existente.getRecursosAsignados()) {
 
@@ -168,5 +176,86 @@ public class ReservaService {
                 }
             }
         }
+    }
+
+    public List<Recurso> asignarRecursosDisponibles(LocalDate fecha, LocalTime inicio, LocalTime fin, List<Categoria> categoriasSolicitadas) throws ValidationException {
+
+        List<Recurso> disponibles = obtenerRecursosDisponibles(fecha, inicio, fin);
+        List<Recurso> seleccionados = new ArrayList<>();
+
+        for (Categoria cat : categoriasSolicitadas) {
+            Optional<Recurso> asignado = disponibles.stream()
+                    .filter(r -> r.getCategoria() != null && r.getCategoria().getId().equals(cat.getId()))
+                    .findFirst();
+
+            if (asignado.isPresent()) {
+                seleccionados.add(asignado.get());
+            } else {
+                throw new ValidationException("No hay recursos disponibles para la categoría: " + cat.getDescripcion());
+            }
+        }
+
+        return seleccionados;
+    }
+
+    public List<Recurso> obtenerRecursosDisponibles(LocalDate fecha, LocalTime inicio, LocalTime fin) throws ValidationException {
+        try {
+            List<Recurso> todosRecursos = recursoXmlDao.readAll();
+            List<Reserva> todasReservas = reservaXmlDao.readAll();
+
+
+            Set<String> idsOcupadas = todasReservas.stream()
+                    .filter(r -> !"CANCELADA".equalsIgnoreCase(r.getEstado()))
+                    .filter(r -> r.getFecha().equals(fecha))
+                    .filter(r -> inicio.isBefore(r.getHoraFin()) && fin.isAfter(r.getHoraInicio()))
+                    .flatMap(r -> r.getRecursosAsignados().stream())
+                    .map(Recurso::getId)
+                    .collect(Collectors.toSet());
+
+
+            return todosRecursos.stream()
+                    .filter(r -> !idsOcupadas.contains(r.getId()))
+                    .collect(Collectors.toList());
+
+        } catch (Exception e) {
+            throw new ValidationException("Error al consultar la disponibilidad de recursos.", e);
+        }
+    }
+    public List<Reserva> obtenerTodas() throws Exception {
+        return reservaXmlDao.readAll();
+    }
+
+
+    public List<Reserva> obtenerReservasActivasPorFuncionario(String idFuncionario) throws Exception {
+        return reservaXmlDao.readAll().stream()
+                .filter(r -> r.getFuncionario() != null && idFuncionario.equalsIgnoreCase(r.getFuncionario().getId()))
+                .filter(r -> "ACTIVA".equalsIgnoreCase(r.getEstado()))
+                .collect(Collectors.toList());
+    }
+
+
+    public void cancelarReservaFutura(String idReserva, String idFuncionario) throws Exception {
+        Reserva reserva = buscarPorId(idReserva)
+                .orElseThrow(() -> new ValidationException("La reserva no existe."));
+
+        if (!"ACTIVA".equalsIgnoreCase(reserva.getEstado())) {
+            throw new ValidationException("Solo se pueden cancelar reservas que estén en estado ACTIVA.");
+        }
+
+        if (reserva.getFuncionario() == null || !idFuncionario.equalsIgnoreCase(reserva.getFuncionario().getId())) {
+            throw new ValidationException("No tiene permisos para cancelar esta reserva.");
+        }
+
+
+        LocalDateTime ahora = LocalDateTime.now();
+        LocalDateTime inicioReserva = LocalDateTime.of(reserva.getFecha(), reserva.getHoraInicio());
+
+        if (!inicioReserva.isAfter(ahora)) {
+            throw new ValidationException("No se puede cancelar una reserva que ya ha iniciado o pasado.");
+        }
+
+
+        reserva.setEstado("CANCELADA");
+        reservaXmlDao.update(reserva);
     }
 }

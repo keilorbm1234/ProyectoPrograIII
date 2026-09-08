@@ -2,6 +2,7 @@ package resourcemanager.presentation;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+
 //creación de esta clase para que todos la puedan usar en sus model de cada paquete que necesiten
 
 public class AbstractModel {

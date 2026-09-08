@@ -7,7 +7,7 @@ public class ViewLogin extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField id;
+    private JTextField Id;
     private JTextField clave;
 
     private ControllerLogin controllerLogin;
@@ -50,7 +50,7 @@ public class ViewLogin extends JDialog {
     }
 
     public String getId(){
-        return id.getText();
+        return Id.getText();
     }
 
     public String getClave(){
