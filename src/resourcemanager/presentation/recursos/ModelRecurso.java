@@ -1,5 +1,5 @@
-package cr.ac.una.resourcemanager.presentation.recursos;
-import cr.ac.una.resourcemanager.logic.Recurso;
+package resourcemanager.presentation.recursos;
+import resourcemanager.logic.Recurso;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;

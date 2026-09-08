@@ -1,9 +1,10 @@
-package cr.ac.una.resourcemanager.presentation.reservas;
+package resourcemanager.presentation.reservas;
 
-import cr.ac.una.resourcemanager.logic.Reserva;
-import cr.ac.una.resourcemanager.presentation.AbstractModel;
+import resourcemanager.logic.Reserva;
+import resourcemanager.presentation.AbstractModel;
 import java.util.ArrayList;
 import java.util.List;
+
 public class ModelReserva extends AbstractModel {
     public static final String LISTA_RESERVAS = "listaReservas";
     public static final String RESERVA_SELECCIONADA = "reservaSeleccionada";

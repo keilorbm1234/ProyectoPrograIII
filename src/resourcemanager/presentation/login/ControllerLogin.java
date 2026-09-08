@@ -4,6 +4,8 @@ import resourcemanager.data.FuncionarioXmlDAO;
 import resourcemanager.logic.Usuario;
 import resourcemanager.logic.AuthService;
 import resourcemanager.logic.UsuarioSession;
+import resourcemanager.presentation.ControllerPrincipal;
+import resourcemanager.presentation.ViewPrincipal;
 
 import javax.swing.*;
 
@@ -22,36 +24,29 @@ public class ControllerLogin {
     public void ingresar(String id, String clave) {
         try {
             authService.login(id, clave);
-            // Recuperamos el usuario que acaba de iniciar sesión
             Usuario logueado = UsuarioSession.getUsuario();
 
             if (logueado != null) {
-                // Validamos el ROL (ADMIN vs FUNCIONARIO)
-                if ("ADMIN".equalsIgnoreCase(logueado.getRol())) {
-                    JOptionPane.showMessageDialog(
-                            view,
-                            "Acceso concedido. Bienvenido Administrador (" + logueado.getId() + ")",
-                            "Inicio de Sesión Exitoso",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                    // abrir la vista de Admin cuando exista
-                } else if ("FUNCIONARIO".equalsIgnoreCase(logueado.getRol())) {
-                    JOptionPane.showMessageDialog(
-                            view,
-                            "Acceso concedido. Bienvenido Funcionario (" + logueado.getId() + ")",
-                            "Inicio de Sesión Exitoso",
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                    // abrir la vista de Funcionario cuando exista
+                String rol = logueado.getRol();
+
+                if ("ADMIN".equalsIgnoreCase(rol) || "FUNCIONARIO".equalsIgnoreCase(rol)) {
+
+
+                    view.dispose();
+
+                    ViewPrincipal viewPrincipal = new ViewPrincipal();
+                    ControllerPrincipal controllerPrincipal = new ControllerPrincipal(viewPrincipal);
+
+
+                    controllerPrincipal.configurarVista();
+
                 } else {
                     throw new Exception("El usuario no tiene un rol válido asignado.");
                 }
-                view.dispose();
             }
         } catch (Exception ex) {
             view.mostrarError(ex.getMessage());
         }
     }
-
 
 }

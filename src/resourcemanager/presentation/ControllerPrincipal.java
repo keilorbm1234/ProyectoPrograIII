@@ -1,18 +1,18 @@
-package cr.ac.una.resourcemanager.presentation;
-import cr.ac.una.resourcemanager.data.RecursoXmlDao;
-import cr.ac.una.resourcemanager.data.ReservaXmlDao;
-import cr.ac.una.resourcemanager.logic.Funcionario;
-import cr.ac.una.resourcemanager.logic.ReservaService;
-import cr.ac.una.resourcemanager.presentation.login.SessionManager;
-import cr.ac.una.resourcemanager.logic.Usuario;
-import cr.ac.una.resourcemanager.logic.UsuarioSession;
-import cr.ac.una.resourcemanager.presentation.login.ViewLogin;
-import cr.ac.una.resourcemanager.presentation.recursos.ControllerRecursos;
-import cr.ac.una.resourcemanager.presentation.recursos.ModelRecurso;
-import cr.ac.una.resourcemanager.presentation.recursos.Recursos;
-import cr.ac.una.resourcemanager.presentation.reservas.ControllerReservas;
-import cr.ac.una.resourcemanager.presentation.reservas.ModelReserva;
-import cr.ac.una.resourcemanager.presentation.reservas.Reservas;
+package resourcemanager.presentation;
+import resourcemanager.data.RecursoXmlDao;
+import resourcemanager.data.ReservaXmlDao;
+import resourcemanager.logic.Funcionario;
+import resourcemanager.logic.ReservaService;
+import resourcemanager.presentation.login.SessionManager;
+import resourcemanager.logic.Usuario;
+import resourcemanager.logic.UsuarioSession;
+import resourcemanager.presentation.login.ViewLogin;
+import resourcemanager.presentation.recursos.ControllerRecursos;
+import resourcemanager.presentation.recursos.ModelRecurso;
+import resourcemanager.presentation.recursos.Recursos;
+import resourcemanager.presentation.reservas.ControllerReservas;
+import resourcemanager.presentation.reservas.ModelReserva;
+import resourcemanager.presentation.reservas.Reservas;
 
 import javax.swing.*;
 

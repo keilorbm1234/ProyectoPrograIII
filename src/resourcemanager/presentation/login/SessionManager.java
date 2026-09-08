@@ -1,8 +1,8 @@
-package cr.ac.una.resourcemanager.presentation.login;
+package resourcemanager.presentation.login;
 
-import cr.ac.una.resourcemanager.logic.Usuario;
-import cr.ac.una.resourcemanager.logic.UsuarioSession;
-import cr.ac.una.resourcemanager.logic.ValidationException;
+import resourcemanager.logic.Usuario;
+import resourcemanager.logic.UsuarioSession;
+import resourcemanager.logic.ValidationException;
 
 public class SessionManager {
     public static boolean esAdmin() {

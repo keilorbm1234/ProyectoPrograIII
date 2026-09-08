@@ -1,4 +1,4 @@
-package cr.ac.una.resourcemanager.presentation;
+package resourcemanager.presentation;
 import javax.swing.*;
 import java.awt.*;
 public class ViewPrincipal extends JFrame{
