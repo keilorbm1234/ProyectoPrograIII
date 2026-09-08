@@ -1,0 +1,5 @@
+resourcemanager\data\RecursoXmlDaoTest.class
+resourcemanager\integration\ReservaIntegrationIT.class
+resourcemanager\data\FuncionarioXmlDaoTest.class
+resourcemanager\data\CategoriaXmlDaoTest.class
+resourcemanager\data\ReservaXmlDaoTest.class
