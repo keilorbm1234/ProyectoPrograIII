@@ -9,6 +9,7 @@ import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+
 public class ControllerReservas {
     private final ModelReserva model;
     private final Reservas view; // Vista Swing (presentation/reservas/Reservas.java)
@@ -26,6 +27,7 @@ public class ControllerReservas {
 
         cargarReservasActivas();
     }
+
     public void cargarReservasActivas() {
         try {
             List<Reserva> activas = reservaService.obtenerReservasActivasPorFuncionario(funcionarioLogueado.getId());
@@ -72,6 +74,14 @@ public class ControllerReservas {
             view.mostrarError(ex.getMessage());
         } catch (Exception ex) {
             view.mostrarError("Error al cancelar la reserva: " + ex.getMessage());
+        }
+    }
+
+    public void imprimirReservas(String destino, javax.swing.JTable tabla){
+        try{
+            new resourcemanager.logic.PdfService().print(destino, "Mis Reservas", null, tabla);
+        } catch (Exception ex) {
+            view.mostrarError("Error al generar el PDF: " + ex.getMessage());
         }
     }
 }
