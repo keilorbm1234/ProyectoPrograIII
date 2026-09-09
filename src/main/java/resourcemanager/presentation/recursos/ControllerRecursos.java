@@ -2,6 +2,7 @@ package resourcemanager.presentation.recursos;
 import resourcemanager.data.RecursoXmlDao;
 import resourcemanager.logic.PdfService;
 import resourcemanager.logic.Recurso;
+import resourcemanager.presentation.TablaExportadora;
 import javax.swing.JTable;
 import java.util.List;
 
@@ -29,7 +30,9 @@ public class ControllerRecursos {
 
     public void imprimirRecursos(String destino, JTable tabla){
         try{
-            new PdfService().print(destino, "Lista de Recursos", null, tabla);
+            List<String> columnas = TablaExportadora.extraerColumnas(tabla);
+            List<List<String>> filas = TablaExportadora.extraerFilas(tabla);
+            new PdfService().print(destino, "Lista de Recursos", null, columnas, filas);
         } catch (Exception ex) {
             view.mostrarError("Error al generar el PDF: " + ex.getMessage());
         }

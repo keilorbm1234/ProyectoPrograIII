@@ -2,7 +2,8 @@ package resourcemanager.presentation.estadisticas;
 
 import com.github.lgooddatepicker.components.DatePicker;
 import resourcemanager.logic.PdfService;
-
+import resourcemanager.presentation.TablaExportadora;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
@@ -48,7 +49,9 @@ public class Estadisticas {
                 destino += ".pdf";
             }
             try {
-                new PdfService().print(destino, titulo, null, tabla);
+                List<String> columnas = TablaExportadora.extraerColumnas(tabla);
+                List<List<String>> filas = TablaExportadora.extraerFilas(tabla);
+                new PdfService().print(destino, titulo, null, columnas, filas);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(tabla,
                         "Error al generar el PDF: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

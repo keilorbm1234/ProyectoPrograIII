@@ -19,10 +19,11 @@ import resourcemanager.Application;
 import javax.swing.JTable;
 import java.awt.Desktop;
 import java.io.File;
+import java.util.List;
 
 public class PdfService {
 
-    public void print(String dest, String titulo, String rutaImagen, JTable tablaSwing) throws Exception {
+    public void print(String dest, String titulo, String rutaImagen, List<String> columnas, List<List<String>> filas) throws Exception {
         PdfFont font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
         PdfWriter writer = new PdfWriter(dest);
         PdfDocument pdf = new PdfDocument(writer);
@@ -43,30 +44,28 @@ public class PdfService {
                 System.out.println("Imagen no encontrada: " + rutaImagen);
             }
         }
-
         document.add(header);
 
-        int totalColumnas = tablaSwing.getColumnCount();
+        int totalColumnas = columnas != null ? columnas.size() : 0;
         if (totalColumnas > 0) {
             Table tablaDatos = new Table(totalColumnas);
             tablaDatos.useAllAvailableWidth();
             tablaDatos.setMarginTop(20);
 
-            for (int i = 0; i < totalColumnas; i++) {
-                tablaDatos.addHeaderCell(getCell(new Paragraph(tablaSwing.getColumnName(i)).setFont(font).setBold(), TextAlignment.CENTER, true));
+            for (String columna : columnas) {
+                tablaDatos.addHeaderCell(getCell(new Paragraph(columna).setFont(font).setBold(), TextAlignment.CENTER, true));
             }
 
-            for (int fila = 0; fila < tablaSwing.getRowCount(); fila++) {
-                for (int col = 0; col < totalColumnas; col++) {
-                    Object valor = tablaSwing.getValueAt(fila, col);
-                    tablaDatos.addCell(getCell(new Paragraph(valor != null ? valor.toString() : "").setFont(font), TextAlignment.LEFT, true));
+            if (filas != null) {
+                for (List<String> fila : filas) {
+                    for (String valor : fila) {
+                        tablaDatos.addCell(getCell(new Paragraph(valor != null ? valor : "").setFont(font), TextAlignment.LEFT, true));
+                    }
                 }
             }
             document.add(tablaDatos);
         }
-
         document.close();
-
         openPdf(dest);
     }
 

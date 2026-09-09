@@ -3,8 +3,7 @@ package resourcemanager.presentation.reservas;
 import resourcemanager.data.RecursoXmlDao;
 import resourcemanager.logic.*;
 import resourcemanager.data.ReservaXmlDao;
-
-
+import resourcemanager.presentation.TablaExportadora;
 import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -79,7 +78,9 @@ public class ControllerReservas {
 
     public void imprimirReservas(String destino, javax.swing.JTable tabla){
         try{
-            new resourcemanager.logic.PdfService().print(destino, "Mis Reservas", null, tabla);
+            List<String> columnas = TablaExportadora.extraerColumnas(tabla);
+            List<List<String>> filas = TablaExportadora.extraerFilas(tabla);
+            new resourcemanager.logic.PdfService().print(destino, "Lista de Reservas", null, columnas, filas);
         } catch (Exception ex) {
             view.mostrarError("Error al generar el PDF: " + ex.getMessage());
         }
