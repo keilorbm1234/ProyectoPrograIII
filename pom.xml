@@ -12,7 +12,19 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <intellij.version>262.10315.174</intellij.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jetbrains.releases</id>
+            <url>https://www.jetbrains.com/intellij-repository/releases</url>
+        </repository>
+        <repository>
+            <id>jetbrains.3rdparty</id>
+            <url>https://cache-redirector.jetbrains.com/intellij-dependencies</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -38,11 +50,23 @@
             <version>7.2.3</version>
             <type>pom</type>
         </dependency>
-        <!-- Para los Graficos -->
+
         <dependency>
             <groupId>org.jfree</groupId>
             <artifactId>jfreechart</artifactId>
             <version>1.5.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jetbrains.intellij.java</groupId>
+            <artifactId>java-gui-forms-rt</artifactId>
+            <version>${intellij.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.java</groupId>
+            <artifactId>java-compiler-ant-tasks</artifactId>
+            <version>${intellij.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -77,6 +101,36 @@
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <path id="j2sp">
+                                    <pathelement location="${project.basedir}/src/main/java"/>
+                                </path>
+                                <taskdef name="javac2" classpathref="maven.compile.classpath" classname="com.intellij.ant.Javac2"/>
+                                <javac2 destdir="${project.basedir}/target/classes">
+                                    <src refid="j2sp"/>
+                                    <classpath>
+                                        <path refid="maven.plugin.classpath"/>
+                                        <path refid="maven.compile.classpath"/>
+                                        <path refid="maven.runtime.classpath"/>
+                                    </classpath>
+                                </javac2>
+                            </target>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
