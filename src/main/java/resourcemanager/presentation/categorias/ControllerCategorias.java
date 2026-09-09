@@ -4,6 +4,7 @@ import resourcemanager.data.CategoriaXmlDao;
 import resourcemanager.logic.Categoria;
 import resourcemanager.logic.PdfService;
 import resourcemanager.logic.ValidationException;
+import resourcemanager.presentation.TablaExportadora;
 import javax.swing.JTable;
 import java.util.List;
 
@@ -81,7 +82,9 @@ public class ControllerCategorias {
 
     public void imprimirCategorias(String destino, JTable tabla){
         try {
-            new PdfService().print(destino, "Listado de Categorias", null, tabla);
+            List<String> columnas = TablaExportadora.extraerColumnas(tabla);
+            List<List<String>> filas = TablaExportadora.extraerFilas(tabla);
+            new PdfService().print(destino, "Listado de Categorias", null, columnas, filas);
         } catch (Exception ex) {
             view.mostrarError("Error al generar el PDF: " + ex.getMessage());
         }
