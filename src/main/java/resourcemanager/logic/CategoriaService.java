@@ -11,9 +11,9 @@ public class CategoriaService {
         this.categoriaDao = categoriaDao;
     }
 
-    public static CategoriaService getInstance(CategoriaXmlDao categoriaDao) {
+    public static synchronized CategoriaService getInstance() {
         if (instance == null) {
-            instance = new CategoriaService(categoriaDao);
+            instance = new CategoriaService(new CategoriaXmlDao());
         }
         return instance;
     }
