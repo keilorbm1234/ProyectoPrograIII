@@ -5,11 +5,20 @@ import resourcemanager.data.FuncionarioXmlDAO;
 import java.util.Optional;
 
 public class AuthService {
+    private static AuthService instance;
     private final FuncionarioXmlDAO funcionarioDAO;
 
     public AuthService(FuncionarioXmlDAO funcionarioDAO) {
         this.funcionarioDAO = funcionarioDAO;
     }
+
+    public static synchronized AuthService getInstance() {
+        if (instance == null) {
+            instance = new AuthService(new FuncionarioXmlDAO());
+        }
+        return instance;
+    }
+
     public Usuario login(String id, String clave) throws Exception {
         // Buscar el funcionario en el archivo XML a través del DAO
         Optional<Funcionario> funcionarioOpt = funcionarioDAO.read(id);
