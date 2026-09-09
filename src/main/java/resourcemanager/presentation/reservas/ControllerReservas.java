@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ControllerReservas {
     private final ModelReserva model;
-    private final Reservas view; // Vista Swing (presentation/reservas/Reservas.java)
+    private final Reservas view;
     private final ReservaService reservaService;
     private final Funcionario funcionarioLogueado;
 

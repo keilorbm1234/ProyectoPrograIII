@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="auto" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/Keilo/IdeaProjects/ProyectoPrograIII" value="3J4yRcdHen1UlqFUhA78z7hI7w5" />
+    </persistenceIdMap>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="70" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "keilorbm1234"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/keilorbm1234/ProyectoPrograIII.git",
+    "accountId": "35f15dac-53b3-4c44-8d8f-6a4d8eb95247"
+  }
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.000000423833218" />
+      <entry key="MS500" value="1.0531428216167702" />
+      <entry key="S2" value="1.5090248951576801" />
+      <entry key="S5" value="2.0411955295795137" />
+      <entry key="S10" value="2.8954410346795973" />
+      <entry key="S30" value="6.654309126098284" />
+      <entry key="S60" value="10.821159122436221" />
+      <entry key="M2" value="14.96428272115573" />
+      <entry key="M5" value="18.717103706847116" />
+      <entry key="M10" value="20.267140984360463" />
+      <entry key="M15" value="20.82331745679253" />
+      <entry key="M30" value="21.400738145312157" />
+      <entry key="H1" value="21.89651979216014" />
+      <entry key="H2" value="30.90554555119804" />
+      <entry key="H4" value="83.28892139458651" />
+      <entry key="D1" value="324.91645190808674" />
+      <entry key="W1" value="420.3858738932995" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.6683977900168144E-77" />
+      <entry key="MS500" value="4.410216616066592E-16" />
+      <entry key="S2" value="1.4491554694444036E-4" />
+      <entry key="S5" value="0.02913707770115102" />
+      <entry key="S10" value="0.17069586316355478" />
+      <entry key="S30" value="0.5547206484899022" />
+      <entry key="S60" value="0.7447957092316673" />
+      <entry key="M2" value="0.8630154745030167" />
+      <entry key="M5" value="0.9427736445071019" />
+      <entry key="M10" value="0.9709653158105606" />
+      <entry key="M15" value="0.9805486461795431" />
+      <entry key="M30" value="0.9902374727713955" />
+      <entry key="H1" value="1.0176011328187902" />
+      <entry key="H2" value="2.0242462705677147" />
+      <entry key="H4" value="7.942562540491257" />
+      <entry key="D1" value="35.17072874118056" />
+      <entry key="W1" value="45.90758457636704" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.8526348917685609" />
+      <entry key="MS500" value="0.9722176692260817" />
+      <entry key="S2" value="1.2472784747827297" />
+      <entry key="S5" value="1.7948778952914206" />
+      <entry key="S10" value="2.806075930315743" />
+      <entry key="S30" value="6.990851970290515" />
+      <entry key="S60" value="11.388086403124097" />
+      <entry key="M2" value="15.703403195009159" />
+      <entry key="M5" value="19.59738877452038" />
+      <entry key="M10" value="21.20416007318602" />
+      <entry key="M15" value="21.780586230480186" />
+      <entry key="M30" value="22.37899805480304" />
+      <entry key="H1" value="22.90801118205569" />
+      <entry key="H2" value="32.92594905905033" />
+      <entry key="H4" value="91.22728991070349" />
+      <entry key="D1" value="360.0847355450658" />
+      <entry key="W1" value="466.2930106591313" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="3J4rwzOeV9qRwhcT6Y685CTWypW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "develop",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.337" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.8665.337" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="" />
+      <created>1788931423598</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788931423598</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

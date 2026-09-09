@@ -6,6 +6,11 @@ import resourcemanager.logic.Categoria;
 import resourcemanager.logic.ListaCategorias;
 import resourcemanager.logic.UsuarioSession;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import javax.swing.table.DefaultTableModel;
+import resourcemanager.logic.Reserva;
+
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
@@ -17,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
 
-public class Reservas extends Component {
+public class Reservas extends Component implements PropertyChangeListener {
     private JButton imprimirButton;
     private JTable misReservasTable;
     private JButton extraerButton;
@@ -124,5 +129,29 @@ public class Reservas extends Component {
             }
             controllerReservas.imprimirReservas(destino, misReservasTable);
         }
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if(ModelReserva.LISTA_RESERVAS.equals(evt.getPropertyName())){
+            cargarTabla((List<Reserva>) evt.getNewValue());
+        }
+    }
+
+    private void cargarTabla(List<Reserva> reservas) {
+        String[] columnas = {"ID", "Actividad", "Fecha", "Hora Inicio", "Hora Fin", "Estado"};
+        DefaultTableModel modelo = new DefaultTableModel(columnas, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        for (Reserva r : reservas) {
+            modelo.addRow(new Object[]{
+                    r.getId(), r.getActividad(), r.getFecha(),
+                    r.getHoraInicio(), r.getHoraFin(), r.getEstado()
+            });
+        }
+        misReservasTable.setModel(modelo);
     }
 }
