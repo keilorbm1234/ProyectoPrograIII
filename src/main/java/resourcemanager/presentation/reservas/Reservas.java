@@ -85,6 +85,11 @@ public class Reservas extends Component {
                     return;
                 }
 
+                if(actividad.isEmpty()){
+                    mostrarError("Debe ingresar una actividad.");
+                    return;
+                }
+
                 ListaCategorias categoriasSeleccionadas = getCategorias();
 
                 controllerReservas.guardarReserva(
@@ -105,7 +110,7 @@ public class Reservas extends Component {
     }
 
     private void imprimir() {
-        if (controllerReservas != null) return;
+        if (controllerReservas == null) return;
 
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setSelectedFile(new File("mis_reservas.pdf"));
