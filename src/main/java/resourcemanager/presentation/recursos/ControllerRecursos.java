@@ -1,27 +1,29 @@
 package resourcemanager.presentation.recursos;
-import resourcemanager.data.RecursoXmlDao;
+
 import resourcemanager.logic.PdfService;
 import resourcemanager.logic.Recurso;
+import resourcemanager.logic.RecursoService;
 import resourcemanager.presentation.TablaExportadora;
+
 import javax.swing.JTable;
 import java.util.List;
 
 public class ControllerRecursos {
     private final ModelRecurso model;
-    private final Recursos view; //vista Swing
-    private final RecursoXmlDao recursoDao;
+    private final Recursos view;
+    private final RecursoService recursoService;
 
-    public ControllerRecursos(ModelRecurso model, Recursos view, RecursoXmlDao recursoDao) {
+    public ControllerRecursos(ModelRecurso model, Recursos view, RecursoService recursoService) {
         this.model = model;
         this.view = view;
-        this.recursoDao = recursoDao;
+        this.recursoService = recursoService;
 
         cargarRecursos();
     }
 
     public void cargarRecursos() {
         try {
-            List<Recurso> lista = recursoDao.readAll();
+            List<Recurso> lista = recursoService.getAllRecursos();
             model.setRecursos(lista);
         } catch (Exception ex) {
             view.mostrarError("Error al cargar recursos: " + ex.getMessage());
@@ -37,6 +39,4 @@ public class ControllerRecursos {
             view.mostrarError("Error al generar el PDF: " + ex.getMessage());
         }
     }
-
-
 }

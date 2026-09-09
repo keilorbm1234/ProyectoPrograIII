@@ -1,5 +1,6 @@
 package resourcemanager.presentation;
-import resourcemanager.data.RecursoXmlDao;
+
+import resourcemanager.logic.RecursoService;
 import resourcemanager.logic.Funcionario;
 import resourcemanager.logic.ReservaService;
 import resourcemanager.presentation.login.SessionManager;
@@ -51,14 +52,14 @@ public class ControllerPrincipal {
         }
 
         try {
-            RecursoXmlDao recursoDao = new RecursoXmlDao();
+            RecursoService recursoService = RecursoService.getInstance();
             ModelRecurso modelRecurso = new ModelRecurso();
             Recursos vistaRecursos = new Recursos();
 
             ControllerRecursos controllerRecursos = new ControllerRecursos(
                     modelRecurso,
                     vistaRecursos,
-                    recursoDao
+                    recursoService
             );
 
             vistaRecursos.setControllerRecursos(controllerRecursos);
