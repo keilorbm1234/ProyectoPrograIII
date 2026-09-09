@@ -59,14 +59,18 @@ public class ViewLogin extends JDialog {
 
     private void onOK() {
         if(controllerLogin !=  null ){ //pedirle al controller que valide la opciónde cerrar
-            controllerLogin.ingresar(getId(), getClave());
+            String id = getId().trim();
+            String clave = getClave().trim();
 
+            if(id.isEmpty() || clave.isEmpty()){
+                mostrarError("Debe ingresar un ID y una clave.");
+                return;
+            }
+            controllerLogin.ingresar(id, clave);
         }
-
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 

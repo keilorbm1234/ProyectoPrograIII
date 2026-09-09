@@ -45,8 +45,8 @@ public class ControllerLogin {
                 }
             }
         } catch (Exception ex) {
-            view.mostrarError(ex.getMessage());
+            String mensaje = (ex.getMessage() != null) ? ex.getMessage() : "Error desconocido al intentar iniciar sesión.";
+            view.mostrarError(mensaje);
         }
     }
-
 }
