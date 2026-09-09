@@ -1,6 +1,5 @@
 package resourcemanager.presentation.login;
 
-import resourcemanager.data.FuncionarioXmlDAO;
 import resourcemanager.logic.Usuario;
 import resourcemanager.logic.AuthService;
 import resourcemanager.logic.UsuarioSession;
@@ -18,7 +17,7 @@ public class ControllerLogin {
     public ControllerLogin(ViewLogin view, ModelLogin model) {
         this.view = view;
         this.model = model;
-        this.authService = new AuthService(new FuncionarioXmlDAO());
+        this.authService = AuthService.getInstance();
     }
 
     public void ingresar(String id, String clave) {

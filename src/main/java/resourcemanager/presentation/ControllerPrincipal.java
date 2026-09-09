@@ -1,6 +1,5 @@
 package resourcemanager.presentation;
 import resourcemanager.data.RecursoXmlDao;
-import resourcemanager.data.ReservaXmlDao;
 import resourcemanager.logic.Funcionario;
 import resourcemanager.logic.ReservaService;
 import resourcemanager.presentation.login.SessionManager;
@@ -84,12 +83,8 @@ public class ControllerPrincipal {
 
         private void abrirReservas() {
             try {
-                ReservaXmlDao reservaDao = new ReservaXmlDao();
-                RecursoXmlDao recursoDao = new RecursoXmlDao();
-                ReservaService reservaService = new ReservaService(reservaDao, recursoDao);
-
+                ReservaService reservaService = ReservaService.getInstance();
                 Funcionario funcionarioActual = (Funcionario) UsuarioSession.getUsuario();
-
                 ModelReserva modelReserva = new ModelReserva();
                 Reservas vistaReservas = new Reservas();
 

@@ -14,12 +14,20 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ReservaService {
+    private static ReservaService instance;
     private final ReservaXmlDao reservaXmlDao;
     private final RecursoXmlDao recursoXmlDao;
 
     public ReservaService(ReservaXmlDao reservaXmlDao, RecursoXmlDao recursoXmlDao) {
         this.reservaXmlDao = reservaXmlDao;
         this.recursoXmlDao = recursoXmlDao;
+    }
+
+    public static synchronized ReservaService getInstance() {
+        if (instance == null) {
+            instance = new ReservaService(new ReservaXmlDao(), new RecursoXmlDao());
+        }
+        return instance;
     }
 
     public void crearReserva(Reserva nueva) throws Exception {
