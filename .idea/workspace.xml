@@ -8,12 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/CategoriaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/RecursoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaExtraccion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaExtractorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/categorias/ControllerCategorias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/categorias/ControllerCategorias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/ControllerRecursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/ControllerRecursos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/CategoriaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/CategoriaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ListaCategorias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ListaCategorias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -39,84 +41,84 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "keilorbm1234"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;keilorbm1234&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/keilorbm1234/ProyectoPrograIII.git",
-    "accountId": "35f15dac-53b3-4c44-8d8f-6a4d8eb95247"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/keilorbm1234/ProyectoPrograIII.git&quot;,
+    &quot;accountId&quot;: &quot;35f15dac-53b3-4c44-8d8f-6a4d8eb95247&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.00001669759676" />
-      <entry key="MS500" value="1.1107977272181186" />
-      <entry key="S2" value="1.587976219004699" />
-      <entry key="S5" value="1.9722480201881634" />
-      <entry key="S10" value="2.4400362876007233" />
-      <entry key="S30" value="4.114581987168531" />
-      <entry key="S60" value="5.712084888512862" />
-      <entry key="M2" value="8.617468170292971" />
-      <entry key="M5" value="22.29081308589041" />
-      <entry key="M10" value="47.2182473219346" />
-      <entry key="M15" value="71.93042387929711" />
-      <entry key="M30" value="140.40725274926928" />
-      <entry key="H1" value="230.16392113664014" />
-      <entry key="H2" value="314.535131178403" />
-      <entry key="H4" value="406.5886580094602" />
-      <entry key="D1" value="705.793293306092" />
-      <entry key="W1" value="828.5932523525549" />
+      <entry key="MS100" value="6.54409738810748E-192" />
+      <entry key="MS500" value="5.7965548636406327E-39" />
+      <entry key="S2" value="2.7592591264787625E-10" />
+      <entry key="S5" value="1.5007799074171402E-4" />
+      <entry key="S10" value="0.012253306862487384" />
+      <entry key="S30" value="0.2648761975194365" />
+      <entry key="S60" value="0.9658933602064783" />
+      <entry key="M2" value="2.7617105460773015" />
+      <entry key="M5" value="7.746849109703524" />
+      <entry key="M10" value="17.140698676595413" />
+      <entry key="M15" value="30.56097020284481" />
+      <entry key="M30" value="83.99385674345781" />
+      <entry key="H1" value="179.9145818461037" />
+      <entry key="H2" value="287.89281474764704" />
+      <entry key="H4" value="401.8669621871105" />
+      <entry key="D1" value="732.5584683367508" />
+      <entry key="W1" value="866.3663469832379" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0971475793365595E-59" />
-      <entry key="MS500" value="1.6145556169604576E-12" />
-      <entry key="S2" value="0.0011277549203737686" />
-      <entry key="S5" value="0.06926398204851088" />
-      <entry key="S10" value="0.3127037449513687" />
-      <entry key="S30" value="1.0193688441228999" />
-      <entry key="S60" value="1.498955082263722" />
-      <entry key="M2" value="2.3410252515738565" />
-      <entry key="M5" value="4.632702061635388" />
-      <entry key="M10" value="6.855550887284338" />
-      <entry key="M15" value="8.207802118980334" />
-      <entry key="M30" value="10.638215116341526" />
-      <entry key="H1" value="13.055560719791709" />
-      <entry key="H2" value="15.469125058022286" />
-      <entry key="H4" value="20.925216067545932" />
-      <entry key="D1" value="49.57573079676855" />
-      <entry key="W1" value="62.42030841436122" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000171392" />
+      <entry key="S2" value="1.0025882711536165" />
+      <entry key="S5" value="1.1336904124809808" />
+      <entry key="S10" value="1.5129338349275716" />
+      <entry key="S30" value="2.3169263845996886" />
+      <entry key="S60" value="2.8737794830311674" />
+      <entry key="M2" value="3.5291337695986456" />
+      <entry key="M5" value="4.6384418529392075" />
+      <entry key="M10" value="6.134119310572575" />
+      <entry key="M15" value="7.62536588211035" />
+      <entry key="M30" value="11.384235896970766" />
+      <entry key="H1" value="15.85376928378196" />
+      <entry key="H2" value="20.12579382068498" />
+      <entry key="H4" value="26.598049849503777" />
+      <entry key="D1" value="56.64978346464497" />
+      <entry key="W1" value="70.25338707794215" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.4077946887044905E-4" />
-      <entry key="MS500" value="0.1889908231779636" />
-      <entry key="S2" value="0.7520234668457466" />
-      <entry key="S5" value="1.418495942389265" />
-      <entry key="S10" value="2.3096717878729924" />
-      <entry key="S30" value="4.896815712290784" />
-      <entry key="S60" value="7.0610032544446595" />
-      <entry key="M2" value="10.855664683634634" />
-      <entry key="M5" value="26.831916427907228" />
-      <entry key="M10" value="53.98963203874748" />
-      <entry key="M15" value="80.06307024063535" />
-      <entry key="M30" value="150.98783670943024" />
-      <entry key="H1" value="243.17952005702924" />
-      <entry key="H2" value="329.9791834223685" />
-      <entry key="H4" value="427.498129824797" />
-      <entry key="D1" value="755.3643719946175" />
-      <entry key="W1" value="891.0127731150408" />
+      <entry key="MS100" value="1.3875584589036898E-48" />
+      <entry key="MS500" value="2.687019426980953E-10" />
+      <entry key="S2" value="0.005077357351371971" />
+      <entry key="S5" value="0.20170128690852768" />
+      <entry key="S10" value="0.7655198500854271" />
+      <entry key="S30" value="2.180973138958815" />
+      <entry key="S60" value="3.58963974823363" />
+      <entry key="M2" value="6.124427739437633" />
+      <entry key="M5" value="12.280421496658509" />
+      <entry key="M10" value="23.197835881264762" />
+      <entry key="M15" value="38.11923033473991" />
+      <entry key="M30" value="95.32251547510641" />
+      <entry key="H1" value="195.72533407949962" />
+      <entry key="H2" value="307.9894384735339" />
+      <entry key="H4" value="428.44627447378747" />
+      <entry key="D1" value="789.202896192623" />
+      <entry key="W1" value="936.6188354977513" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3J4rwzOeV9qRwhcT6Y685CTWypW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -133,7 +135,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature/auth-and-login",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",

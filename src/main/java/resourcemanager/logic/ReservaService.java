@@ -1,5 +1,7 @@
 package resourcemanager.logic;
 
+import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.service.AiServices;
 import resourcemanager.data.RecursoXmlDao;
 import resourcemanager.data.ReservaXmlDao;
 import resourcemanager.data.DuplicateEntityException;
@@ -39,7 +41,7 @@ public class ReservaService {
             if (e instanceof DuplicateEntityException) throw (DuplicateEntityException) e;
         }
 
-        // Validar conflicto de horarios y recursos antes de guardar
+
         validarDisponibilidadYHorario(nueva);
 
         nueva.setEstado("ACTIVA");
@@ -66,7 +68,7 @@ public class ReservaService {
             throw new ValidationException("No se puede modificar una reserva en estado CANCELADA.");
         }
 
-        // Validar disponibilidad con los nuevos datos
+
         validarDisponibilidadYHorario(modificada);
 
         try {
@@ -265,5 +267,19 @@ public class ReservaService {
 
         reserva.setEstado("CANCELADA");
         reservaXmlDao.update(reserva);
+    }
+
+    public ReservaExtraccion extraerReserva(String frase) {
+        OpenAiChatModel aiModel = OpenAiChatModel.builder()
+                .baseUrl("http://langchain4j.dev/demo/openai/v1")
+                .apiKey("demo")
+                .modelName("gpt-4o-mini")
+                .build();
+
+        ReservaExtractorService aiService = AiServices.create(ReservaExtractorService.class, aiModel);
+
+        String listaCategorias = String.join(",", CategoriaService.getInstance().getNombreCategorias());
+
+        return aiService.extraer(frase, listaCategorias, LocalDate.now().toString());
     }
 }
