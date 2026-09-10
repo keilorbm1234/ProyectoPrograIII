@@ -29,4 +29,6 @@ public class ListaCategorias {
     public void setCategorias(List<Categoria> categorias) {
         this.categorias = categorias;
     }
+
+
 }

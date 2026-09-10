@@ -1,6 +1,8 @@
 package resourcemanager.logic;
 
 import resourcemanager.data.CategoriaXmlDao;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriaService {
@@ -20,6 +22,19 @@ public class CategoriaService {
 
     public List<Categoria> getAllCategorias() throws Exception {
         return categoriaDao.readAll();
+    }
+
+    public List<String> getNombreCategorias() {
+        ArrayList<String> listaCategorias = new ArrayList<>();
+        try {
+
+            for (Categoria categoria : getAllCategorias()) {
+                listaCategorias.add(categoria.getDescripcion());
+            }
+        }catch(Exception e) {
+            listaCategorias.add("Error: " + e.getMessage());
+        }
+        return listaCategorias;
     }
 
     public List<Categoria> buscarPorDescripcion(String descripcion) throws Exception {
