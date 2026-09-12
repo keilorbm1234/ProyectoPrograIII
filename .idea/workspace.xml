@@ -8,12 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/CategoriaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/RecursoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/ActividadesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/ActividadesTableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/ModelActividades.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/CalendarizacionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/CalendarizacionTableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/ModelCalendarizacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/EstadisticasController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/ModelEstadisticas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/categorias/ControllerCategorias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/categorias/ControllerCategorias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/ControllerRecursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/ControllerRecursos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendaricacion/Calendarizacion.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendaricacion/Calendarizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,84 +49,84 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "keilorbm1234"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;keilorbm1234&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/keilorbm1234/ProyectoPrograIII.git",
-    "accountId": "35f15dac-53b3-4c44-8d8f-6a4d8eb95247"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/keilorbm1234/ProyectoPrograIII.git&quot;,
+    &quot;accountId&quot;: &quot;35f15dac-53b3-4c44-8d8f-6a4d8eb95247&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.00001669759676" />
-      <entry key="MS500" value="1.1107977272181186" />
-      <entry key="S2" value="1.587976219004699" />
-      <entry key="S5" value="1.9722480201881634" />
-      <entry key="S10" value="2.4400362876007233" />
-      <entry key="S30" value="4.114581987168531" />
-      <entry key="S60" value="5.712084888512862" />
-      <entry key="M2" value="8.617468170292971" />
-      <entry key="M5" value="22.29081308589041" />
-      <entry key="M10" value="47.2182473219346" />
-      <entry key="M15" value="71.93042387929711" />
-      <entry key="M30" value="140.40725274926928" />
-      <entry key="H1" value="230.16392113664014" />
-      <entry key="H2" value="314.535131178403" />
-      <entry key="H4" value="406.5886580094602" />
-      <entry key="D1" value="705.793293306092" />
-      <entry key="W1" value="828.5932523525549" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0000000000000024" />
+      <entry key="M10" value="1.0000005000240837" />
+      <entry key="M15" value="1.0003468699355307" />
+      <entry key="M30" value="1.3083305530520453" />
+      <entry key="H1" value="11.78576013378808" />
+      <entry key="H2" value="69.08883679007563" />
+      <entry key="H4" value="190.17277608987055" />
+      <entry key="D1" value="622.2905627103504" />
+      <entry key="W1" value="814.6348982073047" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0971475793365595E-59" />
-      <entry key="MS500" value="1.6145556169604576E-12" />
-      <entry key="S2" value="0.0011277549203737686" />
-      <entry key="S5" value="0.06926398204851088" />
-      <entry key="S10" value="0.3127037449513687" />
-      <entry key="S30" value="1.0193688441228999" />
-      <entry key="S60" value="1.498955082263722" />
-      <entry key="M2" value="2.3410252515738565" />
-      <entry key="M5" value="4.632702061635388" />
-      <entry key="M10" value="6.855550887284338" />
-      <entry key="M15" value="8.207802118980334" />
-      <entry key="M30" value="10.638215116341526" />
-      <entry key="H1" value="13.055560719791709" />
-      <entry key="H2" value="15.469125058022286" />
-      <entry key="H4" value="20.925216067545932" />
-      <entry key="D1" value="49.57573079676855" />
-      <entry key="W1" value="62.42030841436122" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="3.2059190847644056E-160" />
+      <entry key="S60" value="2.6582707924550887E-80" />
+      <entry key="M2" value="3.1175354351390654E-40" />
+      <entry key="M5" value="5.195130852854821E-16" />
+      <entry key="M10" value="7.259779312240541E-8" />
+      <entry key="M15" value="3.958046732265888E-5" />
+      <entry key="M30" value="0.023361234452507873" />
+      <entry key="H1" value="0.6117993890631653" />
+      <entry key="H2" value="3.348671187904717" />
+      <entry key="H4" value="9.735837770678604" />
+      <entry key="D1" value="43.64016203557673" />
+      <entry key="W1" value="61.29345265435259" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.4077946887044905E-4" />
-      <entry key="MS500" value="0.1889908231779636" />
-      <entry key="S2" value="0.7520234668457466" />
-      <entry key="S5" value="1.418495942389265" />
-      <entry key="S10" value="2.3096717878729924" />
-      <entry key="S30" value="4.896815712290784" />
-      <entry key="S60" value="7.0610032544446595" />
-      <entry key="M2" value="10.855664683634634" />
-      <entry key="M5" value="26.831916427907228" />
-      <entry key="M10" value="53.98963203874748" />
-      <entry key="M15" value="80.06307024063535" />
-      <entry key="M30" value="150.98783670943024" />
-      <entry key="H1" value="243.17952005702924" />
-      <entry key="H2" value="329.9791834223685" />
-      <entry key="H4" value="427.498129824797" />
-      <entry key="D1" value="755.3643719946175" />
-      <entry key="W1" value="891.0127731150408" />
+      <entry key="MS100" value="0.6925547340554623" />
+      <entry key="MS500" value="0.9291606742509133" />
+      <entry key="S2" value="0.9817992705948825" />
+      <entry key="S5" value="0.9926795657513535" />
+      <entry key="S10" value="0.9963330596499111" />
+      <entry key="S30" value="0.9987761894486769" />
+      <entry key="S60" value="0.9993879073956603" />
+      <entry key="M2" value="0.9996939068513223" />
+      <entry key="M5" value="0.9998775514955344" />
+      <entry key="M10" value="0.999939345604034" />
+      <entry key="M15" value="1.0003452701451683" />
+      <entry key="M30" value="1.331544821909259" />
+      <entry key="H1" value="12.395676659912183" />
+      <entry key="H2" value="72.43207525065101" />
+      <entry key="H4" value="199.90128600938237" />
+      <entry key="D1" value="665.9266291968835" />
+      <entry key="W1" value="875.927577368291" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3J4rwzOeV9qRwhcT6Y685CTWypW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -124,7 +134,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Application.executor": "Debug",
+    "Application.Application.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -133,14 +143,19 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature/vistas-calendarizacion",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>

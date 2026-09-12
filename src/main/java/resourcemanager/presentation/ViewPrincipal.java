@@ -53,16 +53,14 @@ public class ViewPrincipal extends JFrame{
 
 
     public void aplicarPermisos(boolean esAdmin) {
-
         btnRecursos.setEnabled(esAdmin);
         btnFuncionarios.setEnabled(esAdmin);
         btnCategorias.setEnabled(esAdmin);
-        btnEstadisticas.setEnabled(esAdmin);
-
 
         btnReservas.setEnabled(true);
         btnActividades.setEnabled(true);
         btnCalendarizacion.setEnabled(true);
+        btnEstadisticas.setEnabled(true);
     }
 
     public void mostrarMensaje(String msg) {
