@@ -77,7 +77,7 @@ public class ControllerPrincipal {
             view.getBtnEstadisticas().addActionListener(e -> abrirEstadisticas());
         }
         if (view.getBtnCambiarClave() != null) {
-            view.getBtnCambiarClave().addActionListener(e -> abrirCambioClave());
+            view.getBtnCambiarClave().addActionListener(e -> abrirParaCambioClave());
         }
 
         view.getBtnLogout().addActionListener(e -> cerrarSesion());
@@ -256,36 +256,32 @@ public class ControllerPrincipal {
     private void cerrarSesion() {
         UsuarioSession.logout();
         view.dispose();
-
-        // Vuelve al flujo estandar de la aplicacion: doLogin() y, si se
-        // vuelve a iniciar sesion con exito, doRun() se encarga de abrir
-        // de nuevo la ventana principal.
         resourcemanager.Application.doLogin();
     }
 
-    private void abrirCambioClave() {
-        Funcionario usuarioActual = (Funcionario) UsuarioSession.getUsuario();
-        if (usuarioActual == null) {
-            view.mostrarMensaje("No hay una sesión activa.");
+    private void abrirParaCambioClave() {
+        Funcionario currentUsuario = (Funcionario) UsuarioSession.getUsuario();
+        if (currentUsuario == null) {
+            view.mostrarMensaje("No existe una sesión activa.");
             return;
         }
 
         try {
-            ModelCambioClave modelCambioClave = new ModelCambioClave(usuarioActual);
-            ViewCambioClave vistaCambioClave = new ViewCambioClave(view, usuarioActual);
+            ModelCambioClave modelCambioClave = new ModelCambioClave(currentUsuario);
+            ViewCambioClave vistaCambioClave = new ViewCambioClave(view, currentUsuario);
 
-            ControllerCambioClave controllerCambioClave = new ControllerCambioClave(
+            ControllerCambioClave controllerCambioDeClave = new ControllerCambioClave(
                     modelCambioClave,
                     vistaCambioClave
             );
-            vistaCambioClave.setController(controllerCambioClave);
+            vistaCambioClave.setController(controllerCambioDeClave);
 
             vistaCambioClave.pack();
             vistaCambioClave.setLocationRelativeTo(view);
             vistaCambioClave.setVisible(true);
 
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir Cambiar Clave: " + ex.getMessage());
+            view.mostrarMensaje("Error al abrir módulo para cambiar Clave: " + ex.getMessage());
         }
     }
 }
