@@ -40,4 +40,42 @@ public class AuthService {
 
         return funcionario;
     }
+
+    /**
+     * Cambia la clave de un usuario (funcionalidad 1 del proyecto:
+     * "También podrán cambiar su clave en cualquier momento").
+     * Valida que la clave actual coincida antes de aplicar el cambio.
+     */
+    public void cambiarClave(String idUsuario, String claveActual, String claveNueva) throws Exception {
+        if (idUsuario == null || idUsuario.trim().isEmpty()) {
+            throw new ValidationException("No se pudo identificar al usuario.");
+        }
+
+        Optional<Funcionario> funcionarioOpt = funcionarioDAO.read(idUsuario);
+        if (funcionarioOpt.isEmpty()) {
+            throw new ValidationException("No se encontró el usuario indicado.");
+        }
+
+        Funcionario funcionario = funcionarioOpt.get();
+
+        if (claveActual == null || !funcionario.getClave().equals(claveActual)) {
+            throw new ValidationException("La clave actual es incorrecta.");
+        }
+        if (claveNueva == null || claveNueva.trim().isEmpty()) {
+            throw new ValidationException("Debe ingresar la nueva clave.");
+        }
+        if (claveNueva.equals(claveActual)) {
+            throw new ValidationException("La nueva clave debe ser diferente a la actual.");
+        }
+
+        funcionario.setClave(claveNueva);
+        funcionarioDAO.update(funcionario);
+
+        // Si el usuario que cambia la clave es el mismo que tiene la sesión activa,
+        // se sincroniza el objeto en memoria para que quede consistente.
+        Usuario actual = UsuarioSession.getUsuario();
+        if (actual != null && actual.getId().equals(idUsuario)) {
+            actual.setClave(claveNueva);
+        }
+    }
 }
