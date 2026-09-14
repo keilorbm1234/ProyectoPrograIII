@@ -9,6 +9,9 @@ import resourcemanager.presentation.actividades.Actividades;
 import resourcemanager.presentation.actividades.ActividadesController;
 import resourcemanager.presentation.calendarizacion.Calendarizacion;
 import resourcemanager.presentation.calendarizacion.CalendarizacionController;
+import resourcemanager.presentation.cambioclave.ControllerCambioClave;
+import resourcemanager.presentation.cambioclave.ModelCambioClave;
+import resourcemanager.presentation.cambioclave.ViewCambioClave;
 import resourcemanager.presentation.categorias.Categorias;
 import resourcemanager.presentation.categorias.ControllerCategorias;
 import resourcemanager.presentation.categorias.ModelCategoria;
@@ -17,7 +20,6 @@ import resourcemanager.presentation.funcionarios.Funcionarios;
 import resourcemanager.presentation.funcionarios.ModelFuncionario;
 import resourcemanager.presentation.login.SessionManager;
 import resourcemanager.logic.UsuarioSession;
-import resourcemanager.presentation.login.ViewLogin;
 import resourcemanager.presentation.recursos.ControllerRecursos;
 import resourcemanager.presentation.recursos.ModelRecurso;
 import resourcemanager.presentation.recursos.Recursos;
@@ -73,6 +75,9 @@ public class ControllerPrincipal {
         }
         if (view.getBtnEstadisticas() != null) {
             view.getBtnEstadisticas().addActionListener(e -> abrirEstadisticas());
+        }
+        if (view.getBtnCambiarClave() != null) {
+            view.getBtnCambiarClave().addActionListener(e -> abrirCambioClave());
         }
 
         view.getBtnLogout().addActionListener(e -> cerrarSesion());
@@ -252,8 +257,35 @@ public class ControllerPrincipal {
         UsuarioSession.logout();
         view.dispose();
 
-        ViewLogin login = new ViewLogin();
-        login.pack();
-        login.setVisible(true);
+        // Vuelve al flujo estandar de la aplicacion: doLogin() y, si se
+        // vuelve a iniciar sesion con exito, doRun() se encarga de abrir
+        // de nuevo la ventana principal.
+        resourcemanager.Application.doLogin();
+    }
+
+    private void abrirCambioClave() {
+        Funcionario usuarioActual = (Funcionario) UsuarioSession.getUsuario();
+        if (usuarioActual == null) {
+            view.mostrarMensaje("No hay una sesión activa.");
+            return;
+        }
+
+        try {
+            ModelCambioClave modelCambioClave = new ModelCambioClave(usuarioActual);
+            ViewCambioClave vistaCambioClave = new ViewCambioClave(view, usuarioActual);
+
+            ControllerCambioClave controllerCambioClave = new ControllerCambioClave(
+                    modelCambioClave,
+                    vistaCambioClave
+            );
+            vistaCambioClave.setController(controllerCambioClave);
+
+            vistaCambioClave.pack();
+            vistaCambioClave.setLocationRelativeTo(view);
+            vistaCambioClave.setVisible(true);
+
+        } catch (Exception ex) {
+            view.mostrarMensaje("Error al abrir Cambiar Clave: " + ex.getMessage());
+        }
     }
 }
