@@ -2,13 +2,15 @@ package resourcemanager.presentation.login;
 
 import resourcemanager.logic.Usuario;
 import resourcemanager.logic.AuthService;
-import resourcemanager.logic.UsuarioSession;
-import resourcemanager.presentation.ControllerPrincipal;
-import resourcemanager.presentation.ViewPrincipal;
 
-import javax.swing.*;
-
-
+/**
+ * Controller del MVC de Login (según guía del profesor):
+ * expone un único método "login" (ingresar) que valida las credenciales
+ * y, si son correctas, deja al usuario guardado en la Sesion (UsuarioSession)
+ * y en el Model, y cierra el JDialog. La creación de la ventana principal
+ * (ViewPrincipal) NO es responsabilidad de este controller: eso lo maneja
+ * Application.doRun(), que se ejecuta solo si el login fue exitoso.
+ */
 public class ControllerLogin {
     private final ViewLogin view;
     private final ModelLogin model;
@@ -22,27 +24,9 @@ public class ControllerLogin {
 
     public void ingresar(String id, String clave) {
         try {
-            authService.login(id, clave);
-            Usuario logueado = UsuarioSession.getUsuario();
-
-            if (logueado != null) {
-                String rol = logueado.getRol();
-
-                if ("ADMIN".equalsIgnoreCase(rol) || "FUNCIONARIO".equalsIgnoreCase(rol)) {
-
-
-                    view.dispose();
-
-                    ViewPrincipal viewPrincipal = new ViewPrincipal();
-                    ControllerPrincipal controllerPrincipal = new ControllerPrincipal(viewPrincipal);
-
-
-                    controllerPrincipal.configurarVista();
-
-                } else {
-                    throw new Exception("El usuario no tiene un rol válido asignado.");
-                }
-            }
+            Usuario logueado = authService.login(id, clave);
+            model.setCurrent(logueado);
+            view.dispose();
         } catch (Exception ex) {
             String mensaje = (ex.getMessage() != null) ? ex.getMessage() : "Error desconocido al intentar iniciar sesión.";
             view.mostrarError(mensaje);
