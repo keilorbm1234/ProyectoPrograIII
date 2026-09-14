@@ -1,11 +1,12 @@
 package resourcemanager.logic;
 
-import dev.langchain4j.model.openai.OpenAiChatModel;
-import dev.langchain4j.service.AiServices;
 import resourcemanager.data.RecursoXmlDao;
 import resourcemanager.data.ReservaXmlDao;
 import resourcemanager.data.DuplicateEntityException;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeMap;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -41,7 +42,7 @@ public class ReservaService {
             if (e instanceof DuplicateEntityException) throw (DuplicateEntityException) e;
         }
 
-
+        // Validar conflicto de horarios y recursos antes de guardar
         validarDisponibilidadYHorario(nueva);
 
         nueva.setEstado("ACTIVA");
@@ -68,7 +69,7 @@ public class ReservaService {
             throw new ValidationException("No se puede modificar una reserva en estado CANCELADA.");
         }
 
-
+        // Validar disponibilidad con los nuevos datos
         validarDisponibilidadYHorario(modificada);
 
         try {
@@ -269,17 +270,58 @@ public class ReservaService {
         reservaXmlDao.update(reserva);
     }
 
-    public ReservaExtraccion extraerReserva(String frase) {
-        OpenAiChatModel aiModel = OpenAiChatModel.builder()
-                .baseUrl("http://langchain4j.dev/demo/openai/v1")
-                .apiKey("demo")
-                .modelName("gpt-4o-mini")
-                .build();
+    // Para la Calendarización de Recursos
+    public List<Reserva> obtenerReservasPorFechaYCategoria(LocalDate fecha, String idCategoria) throws Exception {
+        return reservaXmlDao.readAll().stream()
+                .filter(r -> "ACTIVA".equalsIgnoreCase(r.getEstado()))
+                .filter(r -> r.getFecha().equals(fecha))
+                .filter(r -> r.getRecursosAsignados() != null && r.getRecursosAsignados().stream()
+                        .anyMatch(rec -> rec.getCategoria() != null && idCategoria.equalsIgnoreCase(rec.getCategoria().getId())))
+                .collect(Collectors.toList());
+    }
 
-        ReservaExtractorService aiService = AiServices.create(ReservaExtractorService.class, aiModel);
+    // Para la Programación de Actividades
+    public List<Reserva> obtenerReservasPorRangoFechas(LocalDate inicio, LocalDate fin) throws Exception {
+        return reservaXmlDao.readAll().stream()
+                .filter(r -> "ACTIVA".equalsIgnoreCase(r.getEstado()))
+                .filter(r -> !r.getFecha().isBefore(inicio) && !r.getFecha().isAfter(fin))
+                .collect(Collectors.toList());
+    }
 
-        String listaCategorias = String.join(",", CategoriaService.getInstance().getNombreCategorias());
+    // Conteo de categorías de recursos reservadas en un rango de fechas
+    public Map<String, Long> obtenerEstadisticasRecursos(LocalDate desde, LocalDate hasta) throws Exception {
+        List<Reserva> reservas = reservaXmlDao.readAll().stream()
+                .filter(r -> "ACTIVA".equalsIgnoreCase(r.getEstado()))
+                .filter(r -> !r.getFecha().isBefore(desde) && !r.getFecha().isAfter(hasta))
+                .collect(Collectors.toList());
 
-        return aiService.extraer(frase, listaCategorias, LocalDate.now().toString());
+        Map<String, Long> conteo = new HashMap<>();
+        for (Reserva r : reservas) {
+            if (r.getRecursosAsignados() != null) {
+                for (Recurso rec : r.getRecursosAsignados()) {
+                    if (rec.getCategoria() != null) {
+                        String catNom = rec.getCategoria().getDescripcion();
+                        conteo.put(catNom, conteo.getOrDefault(catNom, 0L) + 1);
+                    }
+                }
+            }
+        }
+        return conteo;
+    }
+
+    // Conteo de actividades por semana en un rango de fechas
+    public Map<String, Long> obtenerEstadisticasActividades(LocalDate desde, LocalDate hasta) throws Exception {
+        List<Reserva> reservas = reservaXmlDao.readAll().stream()
+                .filter(r -> "ACTIVA".equalsIgnoreCase(r.getEstado()))
+                .filter(r -> !r.getFecha().isBefore(desde) && !r.getFecha().isAfter(hasta))
+                .collect(Collectors.toList());
+
+        Map<String, Long> conteo = new TreeMap<>();
+        for (Reserva r : reservas) {
+            LocalDate inicioSemana = r.getFecha().with(java.time.DayOfWeek.MONDAY);
+            String semanaClave = inicioSemana.toString();
+            conteo.put(semanaClave, conteo.getOrDefault(semanaClave, 0L) + 1);
+        }
+        return conteo;
     }
 }

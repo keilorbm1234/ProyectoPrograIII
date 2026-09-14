@@ -5,6 +5,10 @@ import resourcemanager.logic.FuncionarioService;
 import resourcemanager.logic.RecursoService;
 import resourcemanager.logic.Funcionario;
 import resourcemanager.logic.ReservaService;
+import resourcemanager.presentation.actividades.Actividades;
+import resourcemanager.presentation.actividades.ActividadesController;
+import resourcemanager.presentation.calendarizacion.Calendarizacion;
+import resourcemanager.presentation.calendarizacion.CalendarizacionController;
 import resourcemanager.presentation.categorias.Categorias;
 import resourcemanager.presentation.categorias.ControllerCategorias;
 import resourcemanager.presentation.categorias.ModelCategoria;
@@ -20,6 +24,15 @@ import resourcemanager.presentation.recursos.Recursos;
 import resourcemanager.presentation.reservas.ControllerReservas;
 import resourcemanager.presentation.reservas.ModelReserva;
 import resourcemanager.presentation.reservas.Reservas;
+import resourcemanager.presentation.estadisticas.ModelEstadisticas;
+import resourcemanager.presentation.estadisticas.Estadisticas;
+import resourcemanager.presentation.estadisticas.EstadisticasController;
+import resourcemanager.presentation.calendarizacion.ModelCalendarizacion;
+import resourcemanager.presentation.calendarizacion.Calendarizacion;
+import resourcemanager.presentation.calendarizacion.CalendarizacionController;
+import resourcemanager.presentation.actividades.ModelActividades;
+import resourcemanager.presentation.actividades.Actividades;
+import resourcemanager.presentation.actividades.ActividadesController;
 
 import javax.swing.*;
 
@@ -51,7 +64,69 @@ public class ControllerPrincipal {
             view.getBtnCategorias().addActionListener(e -> abrirCategorias());
         }
 
+        // Listeners para matrices y estadísticas
+        if (view.getBtnCalendarizacion() != null) {
+            view.getBtnCalendarizacion().addActionListener(e -> abrirCalendarizacion());
+        }
+        if (view.getBtnActividades() != null) {
+            view.getBtnActividades().addActionListener(e -> abrirActividades());
+        }
+        if (view.getBtnEstadisticas() != null) {
+            view.getBtnEstadisticas().addActionListener(e -> abrirEstadisticas());
+        }
+
         view.getBtnLogout().addActionListener(e -> cerrarSesion());
+    }
+
+    private void abrirEstadisticas() {
+        try {
+            ModelEstadisticas model = new ModelEstadisticas();
+            Estadisticas vistaEst = new Estadisticas();
+            EstadisticasController controller = new EstadisticasController(model, vistaEst);
+
+            JDialog ventanaContainer = new JDialog(view, "Estadísticas del Sistema", true);
+            ventanaContainer.getContentPane().add(vistaEst.getMainPanel());
+            ventanaContainer.pack();
+            ventanaContainer.setLocationRelativeTo(view);
+            ventanaContainer.setVisible(true);
+
+        } catch (Exception ex) {
+            view.mostrarMensaje("Error al abrir Estadísticas: " + ex.getMessage());
+        }
+    }
+
+    private void abrirCalendarizacion() {
+        try {
+            ModelCalendarizacion model = new ModelCalendarizacion();
+            Calendarizacion vistaCal = new Calendarizacion();
+            CalendarizacionController controller = new CalendarizacionController(model, vistaCal);
+
+            JDialog ventanaContainer = new JDialog(view, "Calendarización de Recursos", true);
+            ventanaContainer.getContentPane().add(vistaCal.getMainPanel());
+            ventanaContainer.pack();
+            ventanaContainer.setLocationRelativeTo(view);
+            ventanaContainer.setVisible(true);
+
+        } catch (Exception ex) {
+            view.mostrarMensaje("Error al abrir Calendarización de Recursos: " + ex.getMessage());
+        }
+    }
+
+    private void abrirActividades() {
+        try {
+            ModelActividades model = new ModelActividades();
+            Actividades vistaAct = new Actividades();
+            ActividadesController controller = new ActividadesController(model, vistaAct);
+
+            JDialog ventanaContainer = new JDialog(view, "Programación de Actividades", true);
+            ventanaContainer.getContentPane().add(vistaAct.getMainPanel());
+            ventanaContainer.pack();
+            ventanaContainer.setLocationRelativeTo(view);
+            ventanaContainer.setVisible(true);
+
+        } catch (Exception ex) {
+            view.mostrarMensaje("Error al abrir Programación de Actividades: " + ex.getMessage());
+        }
     }
 
     private void abrirRecursos() {
