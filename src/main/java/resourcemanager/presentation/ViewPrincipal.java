@@ -9,15 +9,16 @@ public class ViewPrincipal extends JFrame{
     private JButton btnEstadisticas;
     private JButton btnActividades;
     private JButton btnCalendarizacion;
+    private JButton btnCambiarClave;
     private JButton btnLogout;
 
     public ViewPrincipal() {
         setTitle("Sistema de Gestión de Recursos - UNA");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 450);
+        setSize(700, 480);
         setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(5, 2, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         btnReservas = new JButton("Gestión de Reservas");
@@ -27,6 +28,7 @@ public class ViewPrincipal extends JFrame{
         btnEstadisticas = new JButton("Estadísticas");
         btnActividades = new JButton("Actividades");
         btnCalendarizacion = new JButton("Calendarización");
+        btnCambiarClave = new JButton("Cambiar Clave");
         btnLogout = new JButton("Cerrar Sesión");
 
         panel.add(btnReservas);
@@ -36,6 +38,7 @@ public class ViewPrincipal extends JFrame{
         panel.add(btnEstadisticas);
         panel.add(btnActividades);
         panel.add(btnCalendarizacion);
+        panel.add(btnCambiarClave);
         panel.add(btnLogout);
 
         add(panel);
@@ -49,6 +52,7 @@ public class ViewPrincipal extends JFrame{
     public JButton getBtnEstadisticas() { return btnEstadisticas; }
     public JButton getBtnActividades() { return btnActividades; }
     public JButton getBtnCalendarizacion() { return btnCalendarizacion; }
+    public JButton getBtnCambiarClave() { return btnCambiarClave; }
     public JButton getBtnLogout() { return btnLogout; }
 
 
@@ -61,6 +65,7 @@ public class ViewPrincipal extends JFrame{
         btnActividades.setEnabled(true);
         btnCalendarizacion.setEnabled(true);
         btnEstadisticas.setEnabled(true);
+        btnCambiarClave.setEnabled(true);
     }
 
     public void mostrarMensaje(String msg) {
