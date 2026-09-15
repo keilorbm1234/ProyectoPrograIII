@@ -1,14 +1,17 @@
 package resourcemanager.presentation.funcionarios;
 
 import resourcemanager.logic.Funcionario;
+import resourcemanager.presentation.FormUiLoader;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import java.awt.BorderLayout;
 import java.io.File;
 import java.util.List;
 
 public class Funcionarios extends JPanel {
+    private JPanel mainPanel;
     private JTextField idBusqTextField;
     private JTextField nombreBusqTextField;
     private JButton buscarButton;
@@ -28,10 +31,13 @@ public class Funcionarios extends JPanel {
     private JLabel nombreLabel1;
     private JLabel telefonoLabel;
     private JLabel listadoLabel;
-    private JPanel mainPanel;
     private ControllerFuncionarios controllerFuncionarios;
 
     public Funcionarios() {
+        FormUiLoader.load(this);
+        setLayout(new BorderLayout());
+        add(mainPanel, BorderLayout.CENTER);
+
         guardarButton.addActionListener(e -> guardar());
         borrarButton.addActionListener(e -> borrar());
         limpiarButton.addActionListener(e -> limpiarCampos());
@@ -43,6 +49,10 @@ public class Funcionarios extends JPanel {
                 seleccionarFilaTabla();
             }
         });
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
     }
 
     public void setControllerFuncionarios(ControllerFuncionarios controllerFuncionarios) {

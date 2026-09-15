@@ -1,14 +1,17 @@
 package resourcemanager.presentation.categorias;
 
 import resourcemanager.logic.Categoria;
+import resourcemanager.presentation.FormUiLoader;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import java.awt.BorderLayout;
 import java.io.File;
 import java.util.List;
 
 public class Categorias extends JPanel {
+    private JPanel mainPanel;
     private JTextField descripcionBusqTextField;
     private JButton buscarButton;
     private JButton imprimirButton;
@@ -24,10 +27,13 @@ public class Categorias extends JPanel {
     private JLabel idLabel;
     private JLabel descripcionLabel;
     private JLabel listadoLabel;
-    private JPanel mainPanel;
     private ControllerCategorias controllerCategorias;
 
     public Categorias() {
+        FormUiLoader.load(this);
+        setLayout(new BorderLayout());
+        add(mainPanel, BorderLayout.CENTER);
+
         textField2.setEditable(false); // el ID se autogenera, no se escribe a mano
 
         guardarButton.addActionListener(e -> guardar());
@@ -41,6 +47,10 @@ public class Categorias extends JPanel {
                 seleccionarFilaTabla();
             }
         });
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
     }
 
     public void setControllerCategorias(ControllerCategorias controllerCategorias) {

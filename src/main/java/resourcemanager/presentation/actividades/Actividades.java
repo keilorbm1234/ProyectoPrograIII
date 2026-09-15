@@ -2,6 +2,7 @@ package resourcemanager.presentation.actividades;
 
 import com.github.lgooddatepicker.components.DatePicker;
 import resourcemanager.logic.PdfService;
+import resourcemanager.presentation.FormUiLoader;
 import resourcemanager.presentation.TablaExportadora;
 
 import javax.swing.*;
@@ -24,6 +25,7 @@ public class Actividades {
     private ActividadesTableModel tableModel;
 
     public Actividades() {
+        FormUiLoader.load(this);
         tableModel = new ActividadesTableModel();
         ActividadesSemanalesTable.setModel(tableModel);
 
