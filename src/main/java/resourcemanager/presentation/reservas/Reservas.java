@@ -48,6 +48,10 @@ public class Reservas extends Component implements PropertyChangeListener {
 
     public Reservas(){
         imprimirButton.addActionListener(e -> imprimir());
+        reservarButton.addActionListener(this::btnGuardarActionPerformed);
+        limpiarButton.addActionListener(e -> limpiarCampos());
+        extraerButton.addActionListener(e -> onExtraer());
+        cancelarReservaSeleccionadaButton.addActionListener(e -> cancelarSeleccionada());
     }
 
     public void mostrarMensajeExito(String mensaje) {
@@ -129,6 +133,81 @@ public class Reservas extends Component implements PropertyChangeListener {
             }
             controllerReservas.imprimirReservas(destino, misReservasTable);
         }
+    }
+
+    public void cargarCategorias(List<Categoria> categorias) {
+        categoriasList.setListData(categorias.toArray());
+    }
+
+    private void onExtraer() {
+        if (controllerReservas == null) return;
+
+        String frase = fraseTextField.getText().trim();
+        if (frase.isEmpty()) {
+            mostrarError("Escriba una frase describiendo la reserva antes de extraer.");
+            return;
+        }
+
+        extraerButton.setEnabled(false);
+
+        SwingWorker<Void, Void> worker = new SwingWorker<>() {
+            @Override
+            protected Void doInBackground() {
+                controllerReservas.extraerReservaDesdeFrase(frase);
+                return null;
+            }
+
+            @Override
+            protected void done() {
+                extraerButton.setEnabled(true);
+            }
+        };
+        worker.execute();
+    }
+
+    public void aplicarDatosExtraidos(String actividad, LocalDate fecha, LocalTime horaInicio,
+                                      LocalTime horaFin, List<String> nombresCategorias) {
+        SwingUtilities.invokeLater(() -> {
+            if (actividad != null && !actividad.isBlank()) {
+                actividadTextField.setText(actividad);
+            }
+            if (fecha != null) {
+                fechaDatePicker.setDate(fecha);
+            }
+            if (horaInicio != null) {
+                horaInicioTimePicker.setTime(horaInicio);
+            }
+            if (horaFin != null) {
+                horaFinTimePicker.setTime(horaFin);
+            }
+
+            if (nombresCategorias != null && !nombresCategorias.isEmpty()) {
+                List<Integer> indicesSeleccionados = new ArrayList<>();
+                javax.swing.ListModel<?> modelo = categoriasList.getModel();
+                for (int i = 0; i < modelo.getSize(); i++) {
+                    Categoria c = (Categoria) modelo.getElementAt(i);
+                    boolean coincide = nombresCategorias.stream()
+                            .anyMatch(nombre -> nombre.equalsIgnoreCase(c.getDescripcion()));
+                    if (coincide) {
+                        indicesSeleccionados.add(i);
+                    }
+                }
+                int[] indices = indicesSeleccionados.stream().mapToInt(Integer::intValue).toArray();
+                categoriasList.setSelectedIndices(indices);
+            }
+
+            mostrarMensajeExito("Se completó el formulario con IA. Puede editarlo antes de reservar.");
+        });
+    }
+
+    private void cancelarSeleccionada() {
+        int fila = misReservasTable.getSelectedRow();
+        if (fila < 0) {
+            mostrarError("Seleccione una reserva de la tabla para cancelarla.");
+            return;
+        }
+        String idReserva = misReservasTable.getValueAt(fila, 0).toString();
+        controllerReservas.cancelarReserva(idReserva);
     }
 
     @Override
