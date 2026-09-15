@@ -24,6 +24,7 @@ public class Categorias extends JPanel {
     private JLabel idLabel;
     private JLabel descripcionLabel;
     private JLabel listadoLabel;
+    private JPanel mainPanel;
     private ControllerCategorias controllerCategorias;
 
     public Categorias() {

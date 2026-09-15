@@ -29,7 +29,8 @@ public class Recursos extends JPanel {
 	private JLabel categoriaLabel;
 	private JLabel descripcionLabel;
 	private JLabel listadoLabel;
-	private ControllerRecursos controllerRecursos;
+    private JPanel mainPanel;
+    private ControllerRecursos controllerRecursos;
 
 	public Recursos(){
 		imprimirButton.addActionListener(e -> imprimir());

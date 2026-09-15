@@ -44,9 +44,12 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     private JLabel categoriasRequeridasLabel;
     private JLabel categoriasLabel;
     private JLabel misReservasLabel;
+    private JPanel mainPanel;
     private ControllerReservas controllerReservas;
 
     public Reservas(){
+        setLayout(new java.awt.BorderLayout());
+        add(mainPanel, BorderLayout.CENTER);
         imprimirButton.addActionListener(e -> imprimir());
         reservarButton.addActionListener(this::btnGuardarActionPerformed);
         limpiarButton.addActionListener(e -> limpiarCampos());
