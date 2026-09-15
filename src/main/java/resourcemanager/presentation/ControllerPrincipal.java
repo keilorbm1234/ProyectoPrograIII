@@ -7,14 +7,19 @@ import resourcemanager.logic.Funcionario;
 import resourcemanager.logic.ReservaService;
 import resourcemanager.presentation.actividades.Actividades;
 import resourcemanager.presentation.actividades.ActividadesController;
+import resourcemanager.presentation.actividades.ModelActividades;
 import resourcemanager.presentation.calendarizacion.Calendarizacion;
 import resourcemanager.presentation.calendarizacion.CalendarizacionController;
+import resourcemanager.presentation.calendarizacion.ModelCalendarizacion;
 import resourcemanager.presentation.cambioclave.ControllerCambioClave;
 import resourcemanager.presentation.cambioclave.ModelCambioClave;
 import resourcemanager.presentation.cambioclave.ViewCambioClave;
 import resourcemanager.presentation.categorias.Categorias;
 import resourcemanager.presentation.categorias.ControllerCategorias;
 import resourcemanager.presentation.categorias.ModelCategoria;
+import resourcemanager.presentation.estadisticas.Estadisticas;
+import resourcemanager.presentation.estadisticas.EstadisticasController;
+import resourcemanager.presentation.estadisticas.ModelEstadisticas;
 import resourcemanager.presentation.funcionarios.ControllerFuncionarios;
 import resourcemanager.presentation.funcionarios.Funcionarios;
 import resourcemanager.presentation.funcionarios.ModelFuncionario;
@@ -26,120 +31,79 @@ import resourcemanager.presentation.recursos.Recursos;
 import resourcemanager.presentation.reservas.ControllerReservas;
 import resourcemanager.presentation.reservas.ModelReserva;
 import resourcemanager.presentation.reservas.Reservas;
-import resourcemanager.presentation.estadisticas.ModelEstadisticas;
-import resourcemanager.presentation.estadisticas.Estadisticas;
-import resourcemanager.presentation.estadisticas.EstadisticasController;
-import resourcemanager.presentation.calendarizacion.ModelCalendarizacion;
-import resourcemanager.presentation.calendarizacion.Calendarizacion;
-import resourcemanager.presentation.calendarizacion.CalendarizacionController;
-import resourcemanager.presentation.actividades.ModelActividades;
-import resourcemanager.presentation.actividades.Actividades;
-import resourcemanager.presentation.actividades.ActividadesController;
-
-import javax.swing.*;
 
 public class ControllerPrincipal {
     private final ViewPrincipal view;
 
     public ControllerPrincipal(ViewPrincipal view) {
         this.view = view;
-        initController();
         configurarVista();
+        initController();
     }
 
     public void configurarVista() {
         boolean esAdmin = SessionManager.esAdmin();
-        view.aplicarPermisos(esAdmin);
+        Funcionario usuarioActual = (Funcionario) UsuarioSession.getUsuario();
+
+        view.setTituloUsuario(usuarioActual.getId(), usuarioActual.getRol());
+
+        if (esAdmin) {
+            agregarPestanaFuncionarios();
+            agregarPestanaCategorias();
+            agregarPestanaRecursos();
+        } else {
+            agregarPestanaReservas();
+        }
+
+        agregarPestanaCalendarizacion();
+        agregarPestanaActividades();
+        agregarPestanaEstadisticas();
+
         view.setVisible(true);
     }
 
     private void initController() {
-        view.getBtnReservas().addActionListener(e -> abrirReservas());
-
-        if (view.getBtnRecursos() != null) {
-            view.getBtnRecursos().addActionListener(e -> abrirRecursos());
-        }
-        if (view.getBtnFuncionarios() != null) {
-            view.getBtnFuncionarios().addActionListener(e -> abrirFuncionarios());
-        }
-        if (view.getBtnCategorias() != null) {
-            view.getBtnCategorias().addActionListener(e -> abrirCategorias());
-        }
-
-        // Listeners para matrices y estadísticas
-        if (view.getBtnCalendarizacion() != null) {
-            view.getBtnCalendarizacion().addActionListener(e -> abrirCalendarizacion());
-        }
-        if (view.getBtnActividades() != null) {
-            view.getBtnActividades().addActionListener(e -> abrirActividades());
-        }
-        if (view.getBtnEstadisticas() != null) {
-            view.getBtnEstadisticas().addActionListener(e -> abrirEstadisticas());
-        }
-        if (view.getBtnCambiarClave() != null) {
-            view.getBtnCambiarClave().addActionListener(e -> abrirParaCambioClave());
-        }
-
+        view.getBtnCambiarClave().addActionListener(e -> abrirParaCambioClave());
         view.getBtnLogout().addActionListener(e -> cerrarSesion());
     }
 
-    private void abrirEstadisticas() {
+    private void agregarPestanaEstadisticas() {
         try {
             ModelEstadisticas model = new ModelEstadisticas();
             Estadisticas vistaEst = new Estadisticas();
-            EstadisticasController controller = new EstadisticasController(model, vistaEst);
+            new EstadisticasController(model, vistaEst);
 
-            JDialog ventanaContainer = new JDialog(view, "Estadísticas del Sistema", true);
-            ventanaContainer.getContentPane().add(vistaEst.getMainPanel());
-            ventanaContainer.pack();
-            ventanaContainer.setLocationRelativeTo(view);
-            ventanaContainer.setVisible(true);
-
+            view.agregarPestana("Estadísticas", vistaEst.getMainPanel());
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir Estadísticas: " + ex.getMessage());
+            view.mostrarMensaje("Error al cargar Estadísticas: " + ex.getMessage());
         }
     }
 
-    private void abrirCalendarizacion() {
+    private void agregarPestanaCalendarizacion() {
         try {
             ModelCalendarizacion model = new ModelCalendarizacion();
             Calendarizacion vistaCal = new Calendarizacion();
-            CalendarizacionController controller = new CalendarizacionController(model, vistaCal);
+            new CalendarizacionController(model, vistaCal);
 
-            JDialog ventanaContainer = new JDialog(view, "Calendarización de Recursos", true);
-            ventanaContainer.getContentPane().add(vistaCal.getMainPanel());
-            ventanaContainer.pack();
-            ventanaContainer.setLocationRelativeTo(view);
-            ventanaContainer.setVisible(true);
-
+            view.agregarPestana("Calendarizacion", vistaCal.getMainPanel());
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir Calendarización de Recursos: " + ex.getMessage());
+            view.mostrarMensaje("Error al cargar Calendarización: " + ex.getMessage());
         }
     }
 
-    private void abrirActividades() {
+    private void agregarPestanaActividades() {
         try {
             ModelActividades model = new ModelActividades();
             Actividades vistaAct = new Actividades();
-            ActividadesController controller = new ActividadesController(model, vistaAct);
+            new ActividadesController(model, vistaAct);
 
-            JDialog ventanaContainer = new JDialog(view, "Programación de Actividades", true);
-            ventanaContainer.getContentPane().add(vistaAct.getMainPanel());
-            ventanaContainer.pack();
-            ventanaContainer.setLocationRelativeTo(view);
-            ventanaContainer.setVisible(true);
-
+            view.agregarPestana("Actividades", vistaAct.getMainPanel());
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir Programación de Actividades: " + ex.getMessage());
+            view.mostrarMensaje("Error al cargar Programación de Actividades: " + ex.getMessage());
         }
     }
 
-    private void abrirRecursos() {
-        if (!SessionManager.esAdmin()) {
-            view.mostrarMensaje("Acceso denegado: No tiene permisos de administrador.");
-            return;
-        }
-
+    private void agregarPestanaRecursos() {
         try {
             RecursoService recursoService = RecursoService.getInstance();
             CategoriaService categoriaService = CategoriaService.getInstance();
@@ -152,26 +116,15 @@ public class ControllerPrincipal {
                     recursoService,
                     categoriaService
             );
-
             vistaRecursos.setControllerRecursos(controllerRecursos);
 
-            JDialog ventanaContainer = new JDialog(view, "Gestión de Recursos", true);
-            ventanaContainer.getContentPane().add(vistaRecursos);
-            ventanaContainer.pack();
-            ventanaContainer.setLocationRelativeTo(view);
-            ventanaContainer.setVisible(true);
-
+            view.agregarPestana("Recursos", vistaRecursos);
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir el módulo de Recursos: " + ex.getMessage());
+            view.mostrarMensaje("Error al cargar el módulo de Recursos: " + ex.getMessage());
         }
     }
 
-    private void abrirCategorias() {
-        if (!SessionManager.esAdmin()) {
-            view.mostrarMensaje("Acceso denegado: No tiene permisos de administrador.");
-            return;
-        }
-
+    private void agregarPestanaCategorias() {
         try {
             CategoriaService categoriaService = CategoriaService.getInstance();
             ModelCategoria modelCategoria = new ModelCategoria();
@@ -182,26 +135,15 @@ public class ControllerPrincipal {
                     vistaCategorias,
                     categoriaService
             );
-
             vistaCategorias.setControllerCategorias(controllerCategorias);
 
-            JDialog ventanaContainer = new JDialog(view, "Gestión de Categorías", true);
-            ventanaContainer.getContentPane().add(vistaCategorias);
-            ventanaContainer.pack();
-            ventanaContainer.setLocationRelativeTo(view);
-            ventanaContainer.setVisible(true);
-
+            view.agregarPestana("Categorías", vistaCategorias);
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir el módulo de Categorías: " + ex.getMessage());
+            view.mostrarMensaje("Error al cargar el módulo de Categorías: " + ex.getMessage());
         }
     }
 
-    private void abrirFuncionarios() {
-        if (!SessionManager.esAdmin()) {
-            view.mostrarMensaje("Acceso denegado: No tiene permisos de administrador.");
-            return;
-        }
-
+    private void agregarPestanaFuncionarios() {
         try {
             FuncionarioService funcionarioService = FuncionarioService.getInstance();
             ModelFuncionario modelFuncionario = new ModelFuncionario();
@@ -212,21 +154,15 @@ public class ControllerPrincipal {
                     vistaFuncionarios,
                     funcionarioService
             );
-
             vistaFuncionarios.setControllerFuncionarios(controllerFuncionarios);
 
-            JDialog ventanaContainer = new JDialog(view, "Gestión de Funcionarios", true);
-            ventanaContainer.getContentPane().add(vistaFuncionarios);
-            ventanaContainer.pack();
-            ventanaContainer.setLocationRelativeTo(view);
-            ventanaContainer.setVisible(true);
-
+            view.agregarPestana("Funcionarios", vistaFuncionarios);
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir el módulo de Funcionarios: " + ex.getMessage());
+            view.mostrarMensaje("Error al cargar el módulo de Funcionarios: " + ex.getMessage());
         }
     }
 
-    private void abrirReservas() {
+    private void agregarPestanaReservas() {
         try {
             ReservaService reservaService = ReservaService.getInstance();
             Funcionario funcionarioActual = (Funcionario) UsuarioSession.getUsuario();
@@ -239,17 +175,11 @@ public class ControllerPrincipal {
                     reservaService,
                     funcionarioActual
             );
-
             vistaReservas.setControllerReservas(controllerReservas);
 
-            JDialog ventanaContainer = new JDialog(view, "Gestión de Reservas", true);
-            ventanaContainer.getContentPane().add(vistaReservas);
-            ventanaContainer.pack();
-            ventanaContainer.setLocationRelativeTo(view);
-            ventanaContainer.setVisible(true);
-
+            view.agregarPestana("Reservas", vistaReservas);
         } catch (Exception ex) {
-            view.mostrarMensaje("Error al abrir el módulo de Reservas: " + ex.getMessage());
+            view.mostrarMensaje("Error al cargar el módulo de Reservas: " + ex.getMessage());
         }
     }
 

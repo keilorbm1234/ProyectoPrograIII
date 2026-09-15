@@ -22,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
 
-public class Reservas extends Component implements PropertyChangeListener {
+public class Reservas extends JPanel implements PropertyChangeListener {
     private JButton imprimirButton;
     private JTable misReservasTable;
     private JButton extraerButton;
