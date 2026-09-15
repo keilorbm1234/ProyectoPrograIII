@@ -6,10 +6,12 @@ import resourcemanager.logic.Recurso;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import java.awt.BorderLayout;
 import java.io.File;
 import java.util.List;
 
 public class Recursos extends JPanel {
+	private JPanel mainPanel;
 	private JTable recursosListadoTable;
 	private JComboBox categoriaFiltroComboBox;
 	private JTextField descripcionFiltrotextField;
@@ -32,6 +34,9 @@ public class Recursos extends JPanel {
 	private ControllerRecursos controllerRecursos;
 
 	public Recursos(){
+		setLayout(new BorderLayout());
+		add(mainPanel, BorderLayout.CENTER);
+
 		imprimirButton.addActionListener(e -> imprimir());
 		guardarButton.addActionListener(e -> guardar());
 		borrarButton.addActionListener(e -> borrar());

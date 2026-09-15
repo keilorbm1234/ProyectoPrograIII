@@ -23,6 +23,7 @@ import java.io.File;
 
 
 public class Reservas extends JPanel implements PropertyChangeListener {
+    private JPanel mainPanel;
     private JButton imprimirButton;
     private JTable misReservasTable;
     private JButton extraerButton;
@@ -47,6 +48,9 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     private ControllerReservas controllerReservas;
 
     public Reservas(){
+        setLayout(new BorderLayout());
+        add(mainPanel, BorderLayout.CENTER);
+
         imprimirButton.addActionListener(e -> imprimir());
         reservarButton.addActionListener(this::btnGuardarActionPerformed);
         limpiarButton.addActionListener(e -> limpiarCampos());

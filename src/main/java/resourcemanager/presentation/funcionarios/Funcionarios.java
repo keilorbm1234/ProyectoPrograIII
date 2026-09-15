@@ -5,10 +5,12 @@ import resourcemanager.logic.Funcionario;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import java.awt.BorderLayout;
 import java.io.File;
 import java.util.List;
 
 public class Funcionarios extends JPanel {
+    private JPanel mainPanel;
     private JTextField idBusqTextField;
     private JTextField nombreBusqTextField;
     private JButton buscarButton;
@@ -31,6 +33,9 @@ public class Funcionarios extends JPanel {
     private ControllerFuncionarios controllerFuncionarios;
 
     public Funcionarios() {
+        setLayout(new BorderLayout());
+        add(mainPanel, BorderLayout.CENTER);
+
         guardarButton.addActionListener(e -> guardar());
         borrarButton.addActionListener(e -> borrar());
         limpiarButton.addActionListener(e -> limpiarCampos());
