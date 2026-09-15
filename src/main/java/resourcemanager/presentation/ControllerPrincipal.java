@@ -118,7 +118,7 @@ public class ControllerPrincipal {
             );
             vistaRecursos.setControllerRecursos(controllerRecursos);
 
-            view.agregarPestana("Recursos", vistaRecursos);
+            view.agregarPestana("Recursos", vistaRecursos.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Recursos: " + ex.getMessage());
         }
@@ -137,7 +137,7 @@ public class ControllerPrincipal {
             );
             vistaCategorias.setControllerCategorias(controllerCategorias);
 
-            view.agregarPestana("Categorías", vistaCategorias);
+            view.agregarPestana("Categorías", vistaCategorias.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Categorías: " + ex.getMessage());
         }
@@ -156,7 +156,7 @@ public class ControllerPrincipal {
             );
             vistaFuncionarios.setControllerFuncionarios(controllerFuncionarios);
 
-            view.agregarPestana("Funcionarios", vistaFuncionarios);
+            view.agregarPestana("Funcionarios", vistaFuncionarios.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Funcionarios: " + ex.getMessage());
         }
@@ -177,7 +177,7 @@ public class ControllerPrincipal {
             );
             vistaReservas.setControllerReservas(controllerReservas);
 
-            view.agregarPestana("Reservas", vistaReservas);
+            view.agregarPestana("Reservas", vistaReservas.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Reservas: " + ex.getMessage());
         }

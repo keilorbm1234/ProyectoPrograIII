@@ -7,6 +7,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import resourcemanager.logic.PdfService;
+import resourcemanager.presentation.FormUiLoader;
 import resourcemanager.presentation.TablaExportadora;
 
 import javax.swing.*;
@@ -43,6 +44,7 @@ public class Estadisticas {
     private JButton imprimirActButton;
 
     public Estadisticas() {
+        FormUiLoader.load(this);
         // Inicializar tablas con sus estructuras
         estadisticasRecTable.setModel(new DefaultTableModel(new Object[]{"Categoría", "Cantidad"}, 0));
         estadisticasActTable.setModel(new DefaultTableModel(new Object[]{"Semana", "Cantidad"}, 0));

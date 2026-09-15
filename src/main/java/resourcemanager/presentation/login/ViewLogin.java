@@ -1,5 +1,7 @@
 package resourcemanager.presentation.login;
 
+import resourcemanager.presentation.FormUiLoader;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -13,6 +15,7 @@ public class ViewLogin extends JDialog {
     private ControllerLogin controllerLogin;
 
     public ViewLogin() {
+        FormUiLoader.load(this);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
