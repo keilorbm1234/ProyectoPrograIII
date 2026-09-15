@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<funcionarios/>
+<funcionarios>
+    <funcionario>
+        <id>ADMIN001</id>
+        <clave>ADMIN001</clave>
+        <rol>ADMIN</rol>
+        <nombre>Administrador del Sistema</nombre>
+        <telefono>00000000</telefono>
+    </funcionario>
+</funcionarios>
