@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <funcionarios>
     <funcionario>
-        <id>ADMIN001</id>
         <clave>ADMIN001</clave>
+        <id>ADMIN001</id>
         <rol>ADMIN</rol>
         <nombre>Administrador del Sistema</nombre>
         <telefono>00000000</telefono>
