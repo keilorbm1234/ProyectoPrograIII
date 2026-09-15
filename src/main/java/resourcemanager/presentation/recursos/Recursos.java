@@ -2,17 +2,14 @@ package resourcemanager.presentation.recursos;
 
 import resourcemanager.logic.Categoria;
 import resourcemanager.logic.Recurso;
-import resourcemanager.presentation.FormUiLoader;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import java.awt.BorderLayout;
 import java.io.File;
 import java.util.List;
 
 public class Recursos extends JPanel {
-	private JPanel mainPanel;
 	private JTable recursosListadoTable;
 	private JComboBox categoriaFiltroComboBox;
 	private JTextField descripcionFiltrotextField;
@@ -32,13 +29,9 @@ public class Recursos extends JPanel {
 	private JLabel categoriaLabel;
 	private JLabel descripcionLabel;
 	private JLabel listadoLabel;
-    private ControllerRecursos controllerRecursos;
+	private ControllerRecursos controllerRecursos;
 
 	public Recursos(){
-		FormUiLoader.load(this);
-		setLayout(new BorderLayout());
-		add(mainPanel, BorderLayout.CENTER);
-
 		imprimirButton.addActionListener(e -> imprimir());
 		guardarButton.addActionListener(e -> guardar());
 		borrarButton.addActionListener(e -> borrar());
@@ -50,10 +43,6 @@ public class Recursos extends JPanel {
 				seleccionarFilaTabla();
 			}
 		});
-	}
-
-	public JPanel getMainPanel() {
-		return mainPanel;
 	}
 
 	public void setControllerRecursos(ControllerRecursos controllerRecursos) {

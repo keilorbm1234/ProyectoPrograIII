@@ -1,51 +1,71 @@
 package resourcemanager.presentation;
-
 import javax.swing.*;
 import java.awt.*;
-
-public class ViewPrincipal extends JFrame {
-    private JTabbedPane tabbedPane;
+public class ViewPrincipal extends JFrame{
+    private JButton btnReservas;
+    private JButton btnRecursos;
+    private JButton btnFuncionarios;
+    private JButton btnCategorias;
+    private JButton btnEstadisticas;
+    private JButton btnActividades;
+    private JButton btnCalendarizacion;
     private JButton btnCambiarClave;
     private JButton btnLogout;
 
     public ViewPrincipal() {
+        setTitle("Sistema de Gestión de Recursos - UNA");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(950, 620);
+        setSize(700, 480);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
 
-        tabbedPane = new JTabbedPane();
+        JPanel panel = new JPanel(new GridLayout(5, 2, 10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+        btnReservas = new JButton("Gestión de Reservas");
+        btnRecursos = new JButton("Gestión de Recursos");
+        btnFuncionarios = new JButton("Gestión de Funcionarios");
+        btnCategorias = new JButton("Categorías");
+        btnEstadisticas = new JButton("Estadísticas");
+        btnActividades = new JButton("Actividades");
+        btnCalendarizacion = new JButton("Calendarización");
         btnCambiarClave = new JButton("Cambiar Clave");
         btnLogout = new JButton("Cerrar Sesión");
 
-        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
-        topPanel.add(btnCambiarClave);
-        topPanel.add(btnLogout);
+        panel.add(btnReservas);
+        panel.add(btnRecursos);
+        panel.add(btnFuncionarios);
+        panel.add(btnCategorias);
+        panel.add(btnEstadisticas);
+        panel.add(btnActividades);
+        panel.add(btnCalendarizacion);
+        panel.add(btnCambiarClave);
+        panel.add(btnLogout);
 
-        add(topPanel, BorderLayout.NORTH);
-        add(tabbedPane, BorderLayout.CENTER);
+        add(panel);
     }
 
-    /** Título estilo "SISTEMA DE RESERVAS - 111 (FUNCIONARIO)" como en el PDF. */
-    public void setTituloUsuario(String id, String rol) {
-        setTitle("SISTEMA DE RESERVAS - " + id + " (" + rol.toUpperCase() + ")");
-    }
 
-    public void agregarPestana(String titulo, Component contenido) {
-        tabbedPane.addTab(titulo, contenido);
-    }
+    public JButton getBtnReservas() { return btnReservas; }
+    public JButton getBtnRecursos() { return btnRecursos; }
+    public JButton getBtnFuncionarios() { return btnFuncionarios; }
+    public JButton getBtnCategorias() { return btnCategorias; }
+    public JButton getBtnEstadisticas() { return btnEstadisticas; }
+    public JButton getBtnActividades() { return btnActividades; }
+    public JButton getBtnCalendarizacion() { return btnCalendarizacion; }
+    public JButton getBtnCambiarClave() { return btnCambiarClave; }
+    public JButton getBtnLogout() { return btnLogout; }
 
-    public JTabbedPane getTabbedPane() {
-        return tabbedPane;
-    }
 
-    public JButton getBtnCambiarClave() {
-        return btnCambiarClave;
-    }
+    public void aplicarPermisos(boolean esAdmin) {
+        btnRecursos.setEnabled(esAdmin);
+        btnFuncionarios.setEnabled(esAdmin);
+        btnCategorias.setEnabled(esAdmin);
 
-    public JButton getBtnLogout() {
-        return btnLogout;
+        btnReservas.setEnabled(true);
+        btnActividades.setEnabled(true);
+        btnCalendarizacion.setEnabled(true);
+        btnEstadisticas.setEnabled(true);
+        btnCambiarClave.setEnabled(true);
     }
 
     public void mostrarMensaje(String msg) {

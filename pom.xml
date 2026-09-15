@@ -97,14 +97,6 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.form</include>
-                </includes>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -147,16 +139,6 @@
                         </goals>
                         <configuration>
                             <target>
-                                <!-- IMPORTANTE: se borra y recrea target/classes justo antes de
-                                     correr javac2. Sin esto, maven-compiler-plugin ya deja ahi
-                                     los .class "planos" (sin UI) momentos antes, y javac2 los ve
-                                     como "ya actualizados" y NO los vuelve a compilar, por lo que
-                                     nunca instrumenta los .form del GUI Designer (pantallas en
-                                     blanco). Al forzar que la carpeta este vacia, javac2 SIEMPRE
-                                     recompila e instrumenta los formularios. -->
-                                <delete dir="${project.basedir}/target/classes" quiet="true"/>
-                                <mkdir dir="${project.basedir}/target/classes"/>
-
                                 <path id="j2sp">
                                     <pathelement location="${project.basedir}/src/main/java"/>
                                 </path>
@@ -169,9 +151,6 @@
                                         <path refid="maven.runtime.classpath"/>
                                     </classpath>
                                 </javac2>
-                                <copy todir="${project.basedir}/target/classes">
-                                    <fileset dir="${project.basedir}/src/main/java" includes="**/*.form"/>
-                                </copy>
                             </target>
                         </configuration>
                     </execution>

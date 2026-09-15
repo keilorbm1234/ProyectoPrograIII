@@ -5,7 +5,6 @@ import com.github.lgooddatepicker.components.TimePicker;
 import resourcemanager.logic.Categoria;
 import resourcemanager.logic.ListaCategorias;
 import resourcemanager.logic.UsuarioSession;
-import resourcemanager.presentation.FormUiLoader;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -13,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
 import resourcemanager.logic.Reserva;
 
 import javax.swing.*;
-import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
@@ -24,7 +22,6 @@ import java.io.File;
 
 
 public class Reservas extends JPanel implements PropertyChangeListener {
-    private JPanel mainPanel;
     private JButton imprimirButton;
     private JTable misReservasTable;
     private JButton extraerButton;
@@ -49,10 +46,6 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     private ControllerReservas controllerReservas;
 
     public Reservas(){
-        FormUiLoader.load(this);
-        setLayout(new BorderLayout());
-        add(mainPanel, BorderLayout.CENTER);
-
         imprimirButton.addActionListener(e -> imprimir());
         reservarButton.addActionListener(this::btnGuardarActionPerformed);
         limpiarButton.addActionListener(e -> limpiarCampos());
@@ -67,10 +60,6 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Error de Validación", JOptionPane.ERROR_MESSAGE);
     }
-    public JPanel getMainPanel() {
-        return mainPanel;
-    }
-
     public void setControllerReservas(ControllerReservas controllerReservas) {
         this.controllerReservas = controllerReservas;
     }
