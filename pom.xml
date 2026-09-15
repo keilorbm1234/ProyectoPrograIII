@@ -97,6 +97,14 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.form</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -161,6 +169,9 @@
                                         <path refid="maven.runtime.classpath"/>
                                     </classpath>
                                 </javac2>
+                                <copy todir="${project.basedir}/target/classes">
+                                    <fileset dir="${project.basedir}/src/main/java" includes="**/*.form"/>
+                                </copy>
                             </target>
                         </configuration>
                     </execution>

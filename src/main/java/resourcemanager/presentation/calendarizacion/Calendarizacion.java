@@ -3,6 +3,7 @@ package resourcemanager.presentation.calendarizacion;
 import com.github.lgooddatepicker.components.DatePicker;
 import resourcemanager.logic.Categoria;
 import resourcemanager.logic.PdfService;
+import resourcemanager.presentation.FormUiLoader;
 import resourcemanager.presentation.TablaExportadora;
 
 import javax.swing.*;
@@ -27,6 +28,7 @@ public class Calendarizacion {
     private CalendarizacionTableModel tableModel;
 
     public Calendarizacion() {
+        FormUiLoader.load(this);
         tableModel = new CalendarizacionTableModel();
         calendarizacionRecTable.setModel(tableModel);
 

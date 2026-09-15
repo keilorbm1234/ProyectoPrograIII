@@ -1,6 +1,7 @@
 package resourcemanager.presentation.categorias;
 
 import resourcemanager.logic.Categoria;
+import resourcemanager.presentation.FormUiLoader;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -29,6 +30,7 @@ public class Categorias extends JPanel {
     private ControllerCategorias controllerCategorias;
 
     public Categorias() {
+        FormUiLoader.load(this);
         setLayout(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
 
@@ -45,6 +47,10 @@ public class Categorias extends JPanel {
                 seleccionarFilaTabla();
             }
         });
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
     }
 
     public void setControllerCategorias(ControllerCategorias controllerCategorias) {

@@ -1,6 +1,7 @@
 package resourcemanager.presentation.funcionarios;
 
 import resourcemanager.logic.Funcionario;
+import resourcemanager.presentation.FormUiLoader;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -33,6 +34,7 @@ public class Funcionarios extends JPanel {
     private ControllerFuncionarios controllerFuncionarios;
 
     public Funcionarios() {
+        FormUiLoader.load(this);
         setLayout(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
 
@@ -47,6 +49,10 @@ public class Funcionarios extends JPanel {
                 seleccionarFilaTabla();
             }
         });
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
     }
 
     public void setControllerFuncionarios(ControllerFuncionarios controllerFuncionarios) {

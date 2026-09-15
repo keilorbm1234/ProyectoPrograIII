@@ -5,6 +5,7 @@ import com.github.lgooddatepicker.components.TimePicker;
 import resourcemanager.logic.Categoria;
 import resourcemanager.logic.ListaCategorias;
 import resourcemanager.logic.UsuarioSession;
+import resourcemanager.presentation.FormUiLoader;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -48,6 +49,7 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     private ControllerReservas controllerReservas;
 
     public Reservas(){
+        FormUiLoader.load(this);
         setLayout(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
 
@@ -65,6 +67,10 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Error de Validación", JOptionPane.ERROR_MESSAGE);
     }
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
     public void setControllerReservas(ControllerReservas controllerReservas) {
         this.controllerReservas = controllerReservas;
     }
