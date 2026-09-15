@@ -28,6 +28,7 @@ public class Funcionarios extends JPanel {
     private JLabel nombreLabel1;
     private JLabel telefonoLabel;
     private JLabel listadoLabel;
+    private JPanel mainPanel;
     private ControllerFuncionarios controllerFuncionarios;
 
     public Funcionarios() {
