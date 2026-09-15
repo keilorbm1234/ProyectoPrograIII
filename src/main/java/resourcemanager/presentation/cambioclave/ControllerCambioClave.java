@@ -2,10 +2,6 @@ package resourcemanager.presentation.cambioclave;
 
 import resourcemanager.logic.AuthService;
 
-/**
- * Controller del MVC de Cambio de Clave: recibe la clave actual y la nueva
- * desde la View, y delega la validación/actualización en AuthService.
- */
 public class ControllerCambioClave {
     private final ModelCambioClave model;
     private final ViewCambioClave view;

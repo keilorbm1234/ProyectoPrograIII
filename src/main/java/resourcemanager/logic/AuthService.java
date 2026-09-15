@@ -41,11 +41,6 @@ public class AuthService {
         return funcionario;
     }
 
-    /**
-     * Cambia la clave de un usuario (funcionalidad 1 del proyecto:
-     * "También podrán cambiar su clave en cualquier momento").
-     * Valida que la clave actual coincida antes de aplicar el cambio.
-     */
     public void cambiarClave(String idUsuario, String claveActual, String claveNueva) throws Exception {
         if (idUsuario == null || idUsuario.trim().isEmpty()) {
             throw new ValidationException("No se pudo identificar al usuario.");
@@ -71,8 +66,6 @@ public class AuthService {
         funcionario.setClave(claveNueva);
         funcionarioDAO.update(funcionario);
 
-        // Si el usuario que cambia la clave es el mismo que tiene la sesión activa,
-        // se sincroniza el objeto en memoria para que quede consistente.
         Usuario actual = UsuarioSession.getUsuario();
         if (actual != null && actual.getId().equals(idUsuario)) {
             actual.setClave(claveNueva);

@@ -5,10 +5,6 @@ import resourcemanager.logic.Funcionario;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * View del MVC de Cambio de Clave. Es un JDialog modal (igual que el
- * Login), construido en Java puro ya que no requiere un diseño complejo.
- */
 public class ViewCambioClave extends JDialog {
     private final JPasswordField claveActualField;
     private final JPasswordField claveNuevaField;

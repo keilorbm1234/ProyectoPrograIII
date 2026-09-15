@@ -12,7 +12,6 @@ public class AuthServiceTest {
         String id = "FUNC-TEST-AUTH-01";
 
         try {
-            // La clave por defecto de un funcionario nuevo es igual a su id.
             funcionarioService.guardar(id, "Usuario de Prueba Login", "88888888");
 
             assertThrows(Exception.class, () -> authService.login(id, "clave-incorrecta"),
