@@ -8,19 +8,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * DAO de Funcionario contra un archivo XML.
- *
- * Nota de diseño: este DAO NO cachea la lista en memoria entre llamadas.
- * Cada operación lee el archivo XML como fuente de verdad y, si corresponde,
- * lo vuelve a escribir. Esto es necesario porque distintos servicios
- * (AuthService, FuncionarioService) mantienen cada uno su propia instancia
- * de este DAO (patrón Singleton por servicio); si se cacheara en memoria,
- * un cambio hecho a través de un servicio (por ejemplo, crear un funcionario
- * o cambiar su clave) no sería visible para los demás hasta reiniciar la
- * aplicación (por ejemplo, el login fallaría para un funcionario recién
- * creado en la misma sesión).
- */
 public class FuncionarioXmlDAO implements DAO<Funcionario, String>{
     private static final String rutaArchivo = "data/Funcionarios.xml";
 
