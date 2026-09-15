@@ -14,17 +14,19 @@ public class ControllerReservas {
     private final Reservas view;
     private final ReservaService reservaService;
     private final Funcionario funcionarioLogueado;
+    private final ReservaIAService reservaIAService;
 
     public ControllerReservas(ModelReserva model, Reservas view, ReservaService reservaService, Funcionario funcionarioLogueado) {
         this.model = model;
         this.view = view;
         this.reservaService = reservaService;
         this.funcionarioLogueado = funcionarioLogueado;
-
+        this.reservaIAService = ReservaIAService.getInstance();
 
         this.model.addPropertyChangeListener((PropertyChangeListener) this.view);
 
         cargarReservasActivas();
+        cargarCategoriasDisponibles();
     }
 
     public void cargarReservasActivas() {
@@ -33,6 +35,15 @@ public class ControllerReservas {
             model.setReservas(activas);
         } catch (Exception ex) {
             view.mostrarError("Error al cargar las reservas: " + ex.getMessage());
+        }
+    }
+
+    private void cargarCategoriasDisponibles() {
+        try {
+            List<Categoria> categorias = CategoriaService.getInstance().getAllCategorias();
+            view.cargarCategorias(categorias);
+        } catch (Exception ex) {
+            view.mostrarError("Error al cargar las categorías: " + ex.getMessage());
         }
     }
 
@@ -73,6 +84,39 @@ public class ControllerReservas {
             view.mostrarError(ex.getMessage());
         } catch (Exception ex) {
             view.mostrarError("Error al cancelar la reserva: " + ex.getMessage());
+        }
+    }
+
+    public void extraerReservaDesdeFrase(String frase) {
+        try {
+            ReservaExtraccion datos = reservaIAService.extraerDatosReserva(frase);
+
+            LocalDate fecha = parsearFecha(datos.getFecha());
+            LocalTime horaInicio = parsearHora(datos.getHoraInicio());
+            LocalTime horaFin = parsearHora(datos.getHoraFinal());
+
+            view.aplicarDatosExtraidos(datos.getActividad(), fecha, horaInicio, horaFin, datos.getCategoriasRecurso());
+
+        } catch (ValidationException ex) {
+            view.mostrarError(ex.getMessage());
+        } catch (Exception ex) {
+            view.mostrarError("No se pudo completar el formulario con IA: " + ex.getMessage());
+        }
+    }
+
+    private LocalDate parsearFecha(String texto) {
+        try {
+            return (texto == null || texto.isBlank()) ? null : LocalDate.parse(texto.trim());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private LocalTime parsearHora(String texto) {
+        try {
+            return (texto == null || texto.isBlank()) ? null : LocalTime.parse(texto.trim());
+        } catch (Exception e) {
+            return null;
         }
     }
 
