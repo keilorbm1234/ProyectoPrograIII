@@ -1,12 +1,24 @@
 package resourcemanager.presentation;
 
+import resourcemanager.presentation.actividades.Actividades;
+import resourcemanager.presentation.calendarizacion.Calendarizacion;
+import resourcemanager.presentation.categorias.Categorias;
+import resourcemanager.presentation.estadisticas.Estadisticas;
+import resourcemanager.presentation.funcionarios.Funcionarios;
+import resourcemanager.presentation.recursos.Recursos;
+import resourcemanager.presentation.reservas.ControllerReservas;
+import resourcemanager.presentation.reservas.Reservas;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.Calendar;
+import java.util.Objects;
 
 public class ViewPrincipal extends JFrame {
     private JTabbedPane tabbedPane;
     private JButton btnCambiarClave;
     private JButton btnLogout;
+    private ControllerReservas controllerReservas;
 
     public ViewPrincipal() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -15,7 +27,6 @@ public class ViewPrincipal extends JFrame {
         setLayout(new BorderLayout());
 
         tabbedPane = new JTabbedPane();
-
         btnCambiarClave = new JButton("Cambiar Clave");
         btnLogout = new JButton("Cerrar Sesión");
 
@@ -25,15 +36,32 @@ public class ViewPrincipal extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
         add(tabbedPane, BorderLayout.CENTER);
+
+        tabbedPane.addChangeListener(e -> {
+            Component pestanaActual = tabbedPane.getSelectedComponent();
+            if (pestanaActual instanceof Reservas && controllerReservas != null) {
+                controllerReservas.cargarCategoriasDisponibles();
+            }
+        });
+
+        try {
+            setIconImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/icon.png"))).getImage());
+            btnCambiarClave.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/clave.png"))));
+            btnLogout.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/login.png"))));
+        } catch (Exception e) {
+            System.out.println("Error al cargar iconos en la ventana principal: " + e.getMessage());
+        }
+    }
+    public void setControllerReservas(ControllerReservas controllerReservas) {
+        this.controllerReservas = controllerReservas;
     }
 
-    /** Título estilo "SISTEMA DE RESERVAS - 111 (FUNCIONARIO)" como en el PDF. */
     public void setTituloUsuario(String id, String rol) {
         setTitle("SISTEMA DE RESERVAS - " + id + " (" + rol.toUpperCase() + ")");
     }
 
-    public void agregarPestana(String titulo, Component contenido) {
-        tabbedPane.addTab(titulo, contenido);
+    public void agregarPestana(String titulo, Icon icono, Component contenido) {
+        tabbedPane.addTab(titulo, icono, contenido);
     }
 
     public JTabbedPane getTabbedPane() {

@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.BorderLayout;
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 public class Funcionarios extends JPanel {
     private JPanel mainPanel;
@@ -37,6 +38,17 @@ public class Funcionarios extends JPanel {
         FormUiLoader.load(this);
         setLayout(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
+
+
+        try {
+            buscarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/search.png"))));
+            imprimirButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/pdf.png"))));
+            guardarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/save.png"))));
+            borrarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/remove.png"))));
+            limpiarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/ok.png"))));
+        } catch (Exception e) {
+            System.out.println("Error al cargar iconos en Funcionarios: " + e.getMessage());
+        }
 
         guardarButton.addActionListener(e -> guardar());
         borrarButton.addActionListener(e -> borrar());

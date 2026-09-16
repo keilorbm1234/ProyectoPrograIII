@@ -12,7 +12,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Actividades {
+public class Actividades extends JPanel{
     private JPanel mainPanel;
     private JButton cargarButton;
     private JButton imprimirButton;

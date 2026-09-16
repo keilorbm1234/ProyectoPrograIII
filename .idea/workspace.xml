@@ -7,7 +7,52 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="" />
+    <list default="true" id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/actividades.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/ai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/calendarizacion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/cancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/categorias.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/checkDouble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/clave.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/clear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/date.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/descartar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/detalles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/funcionarios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/historico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/loginDialog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pdf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/recursos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/remove.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/reservas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/save.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/statistics.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Categorias.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Categorias.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Funcionarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Funcionarios.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Recursos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Recursos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Reservas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Reservas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/cambioclave/ViewCambioClave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/cambioclave/ViewCambioClave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/funcionarios/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/funcionarios/Funcionarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/login/ViewLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/login/ViewLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/Recursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/Recursos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,62 +96,65 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.7937353109790621" />
-      <entry key="MS500" value="4.568975841894035" />
-      <entry key="S2" value="7.369644471604657" />
-      <entry key="S5" value="8.294867245059523" />
-      <entry key="S10" value="9.328222182783595" />
-      <entry key="S30" value="26.46303096465095" />
-      <entry key="S60" value="49.561249111475604" />
-      <entry key="M2" value="70.9951175028125" />
-      <entry key="M5" value="89.06349271117341" />
-      <entry key="M10" value="96.2076867783933" />
-      <entry key="M15" value="98.7302637916681" />
-      <entry key="M30" value="101.3269627750289" />
-      <entry key="H1" value="102.65459617343679" />
-      <entry key="H2" value="104.02801855421177" />
-      <entry key="H4" value="127.02695552950074" />
-      <entry key="D1" value="670.5030746122529" />
-      <entry key="W1" value="1143.5424962682475" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="4.582390621288963E-89" />
-      <entry key="S5" value="4.617818326511164E-36" />
-      <entry key="S10" value="2.14891096290916E-18" />
-      <entry key="S30" value="1.2904449245286249E-6" />
-      <entry key="S60" value="0.0011359775193764273" />
-      <entry key="M2" value="0.033704265596158973" />
-      <entry key="M5" value="0.2576759864918724" />
-      <entry key="M10" value="0.5076179532797003" />
-      <entry key="M15" value="0.6363430655197556" />
-      <entry key="M30" value="0.7977111419392836" />
-      <entry key="H1" value="0.8932605625282316" />
-      <entry key="H2" value="1.0238376709928545" />
-      <entry key="H4" value="3.2426430247810236" />
-      <entry key="D1" value="53.07526101659439" />
-      <entry key="W1" value="97.29310898859772" />
+      <entry key="S2" value="4.706519547253568E-215" />
+      <entry key="S5" value="2.132145708040785E-86" />
+      <entry key="S10" value="2.173937968887617E-43" />
+      <entry key="S30" value="1.5276530529565745E-14" />
+      <entry key="S60" value="3.047354922538494E-7" />
+      <entry key="M2" value="0.0014896399404133154" />
+      <entry key="M5" value="0.2554167684134676" />
+      <entry key="M10" value="1.5454932891820434" />
+      <entry key="M15" value="3.1341060040109827" />
+      <entry key="M30" value="8.193646007490576" />
+      <entry key="H1" value="21.42525366111445" />
+      <entry key="H2" value="47.730616610861844" />
+      <entry key="H4" value="89.4334768458143" />
+      <entry key="D1" value="629.4313426569694" />
+      <entry key="W1" value="1152.5591498371086" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0000000000010594" />
+      <entry key="MS500" value="1.0040272199952922" />
+      <entry key="S2" value="1.251913440102626" />
+      <entry key="S5" value="1.5761035288481637" />
+      <entry key="S10" value="1.7590148409933524" />
+      <entry key="S30" value="1.9121860421353074" />
+      <entry key="S60" value="1.9550843381428116" />
+      <entry key="M2" value="1.9776454160461656" />
+      <entry key="M5" value="2.101791209773828" />
+      <entry key="M10" value="2.8493164744510704" />
+      <entry key="M15" value="3.99036585852967" />
+      <entry key="M30" value="7.929375364916388" />
+      <entry key="H1" value="13.646942773308602" />
+      <entry key="H2" value="19.06640555656381" />
+      <entry key="H4" value="24.136761049874483" />
+      <entry key="D1" value="73.98840574343127" />
+      <entry key="W1" value="122.73589759670863" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5522110971243985" />
-      <entry key="MS500" value="4.3717309749749615" />
-      <entry key="S2" value="7.274358122659842" />
-      <entry key="S5" value="8.250478665263666" />
-      <entry key="S10" value="9.301517019906385" />
-      <entry key="S30" value="26.433749974206496" />
-      <entry key="S60" value="49.53526262304261" />
-      <entry key="M2" value="71.00911137682407" />
-      <entry key="M5" value="89.30985344539616" />
-      <entry key="M10" value="96.70839915542415" />
-      <entry key="M15" value="99.36161369478762" />
-      <entry key="M30" value="102.1219427223689" />
-      <entry key="H1" value="103.54642335825015" />
-      <entry key="H2" value="105.05106000211572" />
-      <entry key="H4" value="130.2682458181585" />
-      <entry key="D1" value="723.5743799655398" />
-      <entry key="W1" value="1240.8345747679746" />
+      <entry key="MS100" value="3.4288204974085204E-4" />
+      <entry key="MS500" value="0.20344695395023749" />
+      <entry key="S2" value="0.8316487661232861" />
+      <entry key="S5" value="1.3336804957899135" />
+      <entry key="S10" value="1.6169780210146711" />
+      <entry key="S30" value="1.8589718738397676" />
+      <entry key="S60" value="1.9276501753219808" />
+      <entry key="M2" value="1.9651744130607327" />
+      <entry key="M5" value="2.3492602117004022" />
+      <entry key="M10" value="4.384430437858278" />
+      <entry key="M15" value="7.1120026247745605" />
+      <entry key="M30" value="16.1085258202624" />
+      <entry key="H1" value="35.059331123129404" />
+      <entry key="H2" value="66.7878657012863" />
+      <entry key="H4" value="113.56412850083849" />
+      <entry key="D1" value="703.415121148795" />
+      <entry key="W1" value="1275.2938757564768" />
     </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -116,30 +164,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ProyectoPrograIII [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ProyectoPrograIII [compile].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "Maven.ProyectoPrograIII [clean].executor": "Run",
+    "Maven.ProyectoPrograIII [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "develop",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yense/Desktop/UNA/Progra 3/ProyectoPrograIII",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yense\Desktop\UNA\Progra 3\ProyectoPrograIII\src\main\resources\icons" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="resourcemanager.Application" />

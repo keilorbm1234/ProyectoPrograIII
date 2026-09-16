@@ -4,6 +4,7 @@ import resourcemanager.presentation.FormUiLoader;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Objects;
 
 public class ViewLogin extends JDialog {
     private JPanel contentPane;
@@ -32,7 +33,7 @@ public class ViewLogin extends JDialog {
             }
         });
 
-        // call onCancel() when cross is clicked
+
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -40,12 +41,15 @@ public class ViewLogin extends JDialog {
             }
         });
 
-        // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+
+        buttonOK.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/ok.png"))));
+        buttonCancel.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/cancel.png"))));
     }
 
     public void setControllerLogin(ControllerLogin controller) {

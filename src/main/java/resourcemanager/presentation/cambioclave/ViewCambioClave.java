@@ -4,6 +4,7 @@ import resourcemanager.logic.Funcionario;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class ViewCambioClave extends JDialog {
     private final JPasswordField claveActualField;
@@ -69,6 +70,14 @@ public class ViewCambioClave extends JDialog {
 
         btnGuardar.addActionListener(e -> onGuardar());
         btnCancelar.addActionListener(e -> dispose());
+
+        try {
+            setIconImage(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/clave.png"))).getImage());
+            btnGuardar.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/save.png"))));
+            btnCancelar.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/remove.png"))));
+        } catch (Exception e) {
+            System.out.println("Error al cargar iconos en Cambiar Clave: " + e.getMessage());
+        }
     }
 
     public void setController(ControllerCambioClave controller) {

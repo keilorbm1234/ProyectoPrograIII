@@ -7,4 +7,12 @@
         <nombre>Administrador del Sistema</nombre>
         <telefono>00000000</telefono>
     </funcionario>
+
+    <funcionario>
+        <clave>111</clave>
+        <id>111</id>
+        <rol>FUNCIONARIO</rol>
+        <nombre>Juan Perez</nombre>
+        <telefono>88888888</telefono>
+    </funcionario>
 </funcionarios>

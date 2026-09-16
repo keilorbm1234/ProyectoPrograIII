@@ -22,7 +22,6 @@ public class ControllerReservas {
         this.reservaService = reservaService;
         this.funcionarioLogueado = funcionarioLogueado;
         this.reservaIAService = ReservaIAService.getInstance();
-
         this.model.addPropertyChangeListener((PropertyChangeListener) this.view);
 
         cargarReservasActivas();
@@ -38,7 +37,7 @@ public class ControllerReservas {
         }
     }
 
-    private void cargarCategoriasDisponibles() {
+    public void cargarCategoriasDisponibles() {
         try {
             List<Categoria> categorias = CategoriaService.getInstance().getAllCategorias();
             view.cargarCategorias(categorias);
@@ -47,13 +46,14 @@ public class ControllerReservas {
         }
     }
 
-    public void guardarReserva(String id, String actividad, LocalDate fecha, LocalTime inicio, LocalTime fin, List<Categoria> categorias) {
+    public void guardarReserva(String idIgnorado, String actividad, LocalDate fecha, LocalTime inicio, LocalTime fin, List<Categoria> categorias) {
         try {
+            String idReservaUnico = "RES-" + java.util.UUID.randomUUID().toString().substring(0, 8);
 
             List<Recurso> recursosAsignados = reservaService.asignarRecursosDisponibles(fecha, inicio, fin, categorias);
 
             Reserva nueva = new Reserva();
-            nueva.setId(id);
+            nueva.setId(idReservaUnico);
             nueva.setActividad(actividad);
             nueva.setFecha(fecha);
             nueva.setHoraInicio(inicio);
@@ -64,11 +64,9 @@ public class ControllerReservas {
             reservaService.crearReserva(nueva);
             cargarReservasActivas();
 
-
-            view.mostrarMensajeExito("Reserva creada con éxito.");
+            view.mostrarMensajeExito("Reserva creada con éxito. Código: " + idReservaUnico);
 
         } catch (ValidationException ex) {
-
             view.mostrarError(ex.getMessage());
         } catch (Exception ex) {
             view.mostrarError("Ocurrió un error inesperado: " + ex.getMessage());
@@ -129,4 +127,5 @@ public class ControllerReservas {
             view.mostrarError("Error al generar el PDF: " + ex.getMessage());
         }
     }
+
 }

@@ -42,7 +42,6 @@ public class ReservaService {
             if (e instanceof DuplicateEntityException) throw (DuplicateEntityException) e;
         }
 
-        // Validar conflicto de horarios y recursos antes de guardar
         validarDisponibilidadYHorario(nueva);
 
         nueva.setEstado("ACTIVA");
@@ -69,7 +68,6 @@ public class ReservaService {
             throw new ValidationException("No se puede modificar una reserva en estado CANCELADA.");
         }
 
-        // Validar disponibilidad con los nuevos datos
         validarDisponibilidadYHorario(modificada);
 
         try {
@@ -190,17 +188,23 @@ public class ReservaService {
     }
 
     public List<Recurso> asignarRecursosDisponibles(LocalDate fecha, LocalTime inicio, LocalTime fin, List<Categoria> categoriasSolicitadas) throws ValidationException {
-
         List<Recurso> disponibles = obtenerRecursosDisponibles(fecha, inicio, fin);
         List<Recurso> seleccionados = new ArrayList<>();
 
         for (Categoria cat : categoriasSolicitadas) {
             Optional<Recurso> asignado = disponibles.stream()
-                    .filter(r -> r.getCategoria() != null && r.getCategoria().getId().equals(cat.getId()))
+                    .filter(r -> r.getCategoria() != null && (
+
+                            (r.getCategoria().getId() != null && cat.getId() != null && r.getCategoria().getId().equalsIgnoreCase(cat.getId())) ||
+
+                                    (r.getCategoria().getDescripcion() != null && cat.getDescripcion() != null && r.getCategoria().getDescripcion().trim().equalsIgnoreCase(cat.getDescripcion().trim()))
+                    ))
                     .findFirst();
 
             if (asignado.isPresent()) {
-                seleccionados.add(asignado.get());
+                Recurso recursoEncontrado = asignado.get();
+                seleccionados.add(recursoEncontrado);
+                disponibles.remove(recursoEncontrado);
             } else {
                 throw new ValidationException("No hay recursos disponibles para la categoría: " + cat.getDescripcion());
             }

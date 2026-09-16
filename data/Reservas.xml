@@ -1,2 +1,160 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ListaReservas/>
+<ListaReservas>
+    <reserva>
+        <id>111</id>
+        <actividad>reunión de trabajo</actividad>
+        <fecha>2026-10-14</fecha>
+        <horaInicio>08:00</horaInicio>
+        <horaFin>10:00</horaFin>
+        <funcionario>
+            <clave>111</clave>
+            <id>111</id>
+            <rol>FUNCIONARIO</rol>
+            <nombre>Juan Perez</nombre>
+            <telefono>88888888</telefono>
+        </funcionario>
+        <recursosAsignados>
+            <recurso>
+                <categoria>
+                    <descripcion>Laptop windows</descripcion>
+                    <id>CAT-000001</id>
+                </categoria>
+                <descripcion>Laptop DELL XPS</descripcion>
+                <id>LAP-001</id>
+            </recurso>
+        </recursosAsignados>
+        <estado>ACTIVA</estado>
+    </reserva>
+    <reserva>
+        <id>RES-2dcaf637</id>
+        <actividad>capacitacion de personal</actividad>
+        <fecha>2026-10-20</fecha>
+        <horaInicio>09:00</horaInicio>
+        <horaFin>11:00</horaFin>
+        <funcionario>
+            <clave>111</clave>
+            <id>111</id>
+            <rol>FUNCIONARIO</rol>
+            <nombre>Juan Perez</nombre>
+            <telefono>88888888</telefono>
+        </funcionario>
+        <recursosAsignados>
+            <recurso>
+                <categoria>
+                    <descripcion>Laptop windows</descripcion>
+                    <id>CAT-000001</id>
+                </categoria>
+                <descripcion>Laptop DELL XPS</descripcion>
+                <id>LAP-001</id>
+            </recurso>
+            <recurso>
+                <categoria>
+                    <descripcion>Proyector Epson</descripcion>
+                    <id>CAT-000003</id>
+                </categoria>
+                <descripcion>Proyector HD HDMI</descripcion>
+                <id>PROY-001</id>
+            </recurso>
+        </recursosAsignados>
+        <estado>ACTIVA</estado>
+    </reserva>
+    <reserva>
+        <id>RES-013e386c</id>
+        <actividad>Reunion con clientes</actividad>
+        <fecha>2026-10-18</fecha>
+        <horaInicio>15:00</horaInicio>
+        <horaFin>17:00</horaFin>
+        <funcionario>
+            <clave>111</clave>
+            <id>111</id>
+            <rol>FUNCIONARIO</rol>
+            <nombre>Juan Perez</nombre>
+            <telefono>88888888</telefono>
+        </funcionario>
+        <recursosAsignados>
+            <recurso>
+                <categoria>
+                    <descripcion>Proyector Epson</descripcion>
+                    <id>CAT-000003</id>
+                </categoria>
+                <descripcion>Proyector HD HDMI</descripcion>
+                <id>PROY-001</id>
+            </recurso>
+            <recurso>
+                <categoria>
+                    <descripcion>Sala de Juntas</descripcion>
+                    <id>CAT-000005</id>
+                </categoria>
+                <descripcion>Sala Principal A</descripcion>
+                <id>SAL-001</id>
+            </recurso>
+        </recursosAsignados>
+        <estado>CANCELADA</estado>
+    </reserva>
+    <reserva>
+        <id>RES-da30bec6</id>
+        <actividad>Taller de induccion</actividad>
+        <fecha>2026-10-22</fecha>
+        <horaInicio>08:00</horaInicio>
+        <horaFin>12:00</horaFin>
+        <funcionario>
+            <clave>111</clave>
+            <id>111</id>
+            <rol>FUNCIONARIO</rol>
+            <nombre>Juan Perez</nombre>
+            <telefono>88888888</telefono>
+        </funcionario>
+        <recursosAsignados>
+            <recurso>
+                <categoria>
+                    <descripcion>Laptop windows</descripcion>
+                    <id>CAT-000001</id>
+                </categoria>
+                <descripcion>Laptop DELL XPS</descripcion>
+                <id>LAP-001</id>
+            </recurso>
+            <recurso>
+                <categoria>
+                    <descripcion>Sala para 10 personas</descripcion>
+                    <id>CAT-000004</id>
+                </categoria>
+                <descripcion>Sala Principal B 10 Personas</descripcion>
+                <id>SAL-002</id>
+            </recurso>
+        </recursosAsignados>
+        <estado>ACTIVA</estado>
+    </reserva>
+    <reserva>
+        <id>RES-39febded</id>
+        <actividad>Reunion con clientes</actividad>
+        <fecha>2026-10-18</fecha>
+        <horaInicio>15:00</horaInicio>
+        <horaFin>17:00</horaFin>
+        <funcionario>
+            <clave>111</clave>
+            <id>111</id>
+            <rol>FUNCIONARIO</rol>
+            <nombre>Juan Perez</nombre>
+            <telefono>88888888</telefono>
+        </funcionario>
+        <recursosAsignados>
+            <recurso>
+                <categoria>
+                    <descripcion>Proyector Epson</descripcion>
+                    <id>CAT-000003</id>
+                </categoria>
+                <descripcion>Proyector HD HDMI</descripcion>
+                <id>PROY-001</id>
+            </recurso>
+            <recurso>
+                <categoria>
+                    <descripcion>Sala de Juntas</descripcion>
+                    <id>CAT-000005</id>
+                </categoria>
+                <descripcion>Sala Principal A</descripcion>
+                <id>SAL-001</id>
+            </recurso>
+        </recursosAsignados>
+        <estado>ACTIVA</estado>
+    </reserva>
+</ListaReservas>

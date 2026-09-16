@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-public class Estadisticas {
+public class Estadisticas extends JPanel{
     private JPanel mainPanel;
     private JTable estadisticasRecTable;
     private JTable estadisticasActTable;

@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<listaCategorias/>
+<listaCategorias>
+    <categoria>
+        <descripcion>Laptop windows</descripcion>
+        <id>CAT-000001</id>
+    </categoria>
+    <categoria>
+        <descripcion>Proyector Epson</descripcion>
+        <id>CAT-000003</id>
+    </categoria>
+    <categoria>
+        <descripcion>Sala para 10 personas</descripcion>
+        <id>CAT-000004</id>
+    </categoria>
+    <categoria>
+        <descripcion>Sala de Juntas</descripcion>
+        <id>CAT-000005</id>
+    </categoria>
+</listaCategorias>

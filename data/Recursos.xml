@@ -1,2 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ListaRecursos/>
+<ListaRecursos>
+    <recurso>
+        <categoria>
+            <descripcion>Laptop windows</descripcion>
+            <id>CAT-000001</id>
+        </categoria>
+        <descripcion>Laptop DELL XPS</descripcion>
+        <id>LAP-001</id>
+    </recurso>
+    <recurso>
+        <categoria>
+            <descripcion>Sala de Juntas</descripcion>
+            <id>CAT-000005</id>
+        </categoria>
+        <descripcion>Sala Principal A</descripcion>
+        <id>SAL-001</id>
+    </recurso>
+    <recurso>
+        <categoria>
+            <descripcion>Proyector Epson</descripcion>
+            <id>CAT-000003</id>
+        </categoria>
+        <descripcion>Proyector HD HDMI</descripcion>
+        <id>PROY-001</id>
+    </recurso>
+    <recurso>
+        <categoria>
+            <descripcion>Sala para 10 personas</descripcion>
+            <id>CAT-000004</id>
+        </categoria>
+        <descripcion>Sala Principal B 10 Personas</descripcion>
+        <id>SAL-002</id>
+    </recurso>
+</ListaRecursos>

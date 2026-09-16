@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
+import java.util.Objects;
 
 
 public class Reservas extends JPanel implements PropertyChangeListener {
@@ -30,7 +31,7 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     private JButton extraerButton;
     private JTextField fraseTextField;
     private JTextField actividadTextField;
-    private JList categoriasList;
+    private JList<Categoria> categoriasList;
     private JButton reservarButton;
     private JButton cancelarReservaSeleccionadaButton;
     private JButton limpiarButton;
@@ -58,6 +59,18 @@ public class Reservas extends JPanel implements PropertyChangeListener {
         limpiarButton.addActionListener(e -> limpiarCampos());
         extraerButton.addActionListener(e -> onExtraer());
         cancelarReservaSeleccionadaButton.addActionListener(e -> cancelarSeleccionada());
+
+        extraerButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/ai.png"))));
+        reservarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/ok.png"))));
+        cancelarReservaSeleccionadaButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/cancel.png"))));
+
+        try {
+
+            limpiarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/clear.png"))));
+            imprimirButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/pdf.png"))));
+        } catch (Exception e) {
+            System.out.println("Error al cargar iconos en Reservas: " + e.getMessage());
+        }
     }
 
     public void mostrarMensajeExito(String mensaje) {
@@ -73,6 +86,9 @@ public class Reservas extends JPanel implements PropertyChangeListener {
 
     public void setControllerReservas(ControllerReservas controllerReservas) {
         this.controllerReservas = controllerReservas;
+        if (this.controllerReservas != null) {
+            this.controllerReservas.cargarCategoriasDisponibles();
+        }
     }
     private ListaCategorias getCategorias() {
 
@@ -146,7 +162,20 @@ public class Reservas extends JPanel implements PropertyChangeListener {
     }
 
     public void cargarCategorias(List<Categoria> categorias) {
-        categoriasList.setListData(categorias.toArray());
+        SwingUtilities.invokeLater(() -> {
+            DefaultListModel<Categoria> model = new DefaultListModel<>();
+            if (categorias != null && !categorias.isEmpty()) {
+                for (Categoria c : categorias) {
+                    model.addElement(c);
+                }
+            }
+            if (categoriasList != null) {
+                categoriasList.setModel(model);
+                categoriasList.setSelectedIndex(-1);
+                categoriasList.revalidate();
+                categoriasList.repaint();
+            }
+        });
     }
 
     private void onExtraer() {
@@ -242,5 +271,10 @@ public class Reservas extends JPanel implements PropertyChangeListener {
             });
         }
         misReservasTable.setModel(modelo);
+
+    }
+    private void createUIComponents() {
+
+        categoriasList = new JList<>(new DefaultListModel<Categoria>());
     }
 }

@@ -32,6 +32,8 @@ import resourcemanager.presentation.reservas.ControllerReservas;
 import resourcemanager.presentation.reservas.ModelReserva;
 import resourcemanager.presentation.reservas.Reservas;
 
+import javax.swing.*;
+
 public class ControllerPrincipal {
     private final ViewPrincipal view;
 
@@ -73,7 +75,8 @@ public class ControllerPrincipal {
             Estadisticas vistaEst = new Estadisticas();
             new EstadisticasController(model, vistaEst);
 
-            view.agregarPestana("Estadísticas", vistaEst.getMainPanel());
+            // Añadimos el título, su icono con la ruta, y el panel:
+            view.agregarPestana("Estadísticas", new ImageIcon(getClass().getResource("/icons/statistics.png")), vistaEst.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar Estadísticas: " + ex.getMessage());
         }
@@ -85,7 +88,7 @@ public class ControllerPrincipal {
             Calendarizacion vistaCal = new Calendarizacion();
             new CalendarizacionController(model, vistaCal);
 
-            view.agregarPestana("Calendarizacion", vistaCal.getMainPanel());
+            view.agregarPestana("Calendarización", new ImageIcon(getClass().getResource("/icons/calendarizacion.png")), vistaCal.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar Calendarización: " + ex.getMessage());
         }
@@ -97,7 +100,7 @@ public class ControllerPrincipal {
             Actividades vistaAct = new Actividades();
             new ActividadesController(model, vistaAct);
 
-            view.agregarPestana("Actividades", vistaAct.getMainPanel());
+            view.agregarPestana("Actividades", new ImageIcon(getClass().getResource("/icons/actividades.png")), vistaAct.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar Programación de Actividades: " + ex.getMessage());
         }
@@ -118,7 +121,7 @@ public class ControllerPrincipal {
             );
             vistaRecursos.setControllerRecursos(controllerRecursos);
 
-            view.agregarPestana("Recursos", vistaRecursos.getMainPanel());
+            view.agregarPestana("Recursos", new ImageIcon(getClass().getResource("/icons/recursos.png")), vistaRecursos.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Recursos: " + ex.getMessage());
         }
@@ -137,7 +140,7 @@ public class ControllerPrincipal {
             );
             vistaCategorias.setControllerCategorias(controllerCategorias);
 
-            view.agregarPestana("Categorías", vistaCategorias.getMainPanel());
+            view.agregarPestana("Categorías", new ImageIcon(getClass().getResource("/icons/categorias.png")), vistaCategorias.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Categorías: " + ex.getMessage());
         }
@@ -156,7 +159,7 @@ public class ControllerPrincipal {
             );
             vistaFuncionarios.setControllerFuncionarios(controllerFuncionarios);
 
-            view.agregarPestana("Funcionarios", vistaFuncionarios.getMainPanel());
+            view.agregarPestana("Funcionarios", new ImageIcon(getClass().getResource("/icons/funcionarios.png")), vistaFuncionarios.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Funcionarios: " + ex.getMessage());
         }
@@ -176,8 +179,10 @@ public class ControllerPrincipal {
                     funcionarioActual
             );
             vistaReservas.setControllerReservas(controllerReservas);
+            view.setControllerReservas(controllerReservas);
+            controllerReservas.cargarCategoriasDisponibles();
 
-            view.agregarPestana("Reservas", vistaReservas.getMainPanel());
+            view.agregarPestana("Reservas", new ImageIcon(getClass().getResource("/icons/reservas.png")), vistaReservas.getMainPanel());
         } catch (Exception ex) {
             view.mostrarMensaje("Error al cargar el módulo de Reservas: " + ex.getMessage());
         }

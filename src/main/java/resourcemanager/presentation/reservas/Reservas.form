@@ -242,7 +242,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="8fcd0" class="javax.swing.JList" binding="categoriasList">
+                  <component id="8fcd0" class="javax.swing.JList" binding="categoriasList" custom-create="true">
                     <constraints/>
                     <properties/>
                   </component>

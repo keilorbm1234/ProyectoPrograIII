@@ -8,12 +8,13 @@ import resourcemanager.presentation.TablaExportadora;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Calendarizacion {
+public class Calendarizacion extends JPanel {
     private JPanel mainPanel;
     private JTable calendarizacionRecTable;
     private JComboBox<Categoria> categoriaComboBox;

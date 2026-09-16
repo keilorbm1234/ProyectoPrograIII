@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.BorderLayout;
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 public class Recursos extends JPanel {
 	private JPanel mainPanel;
@@ -50,6 +51,12 @@ public class Recursos extends JPanel {
 				seleccionarFilaTabla();
 			}
 		});
+
+		guardarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/save.png"))));
+		borrarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/delete.png"))));
+		limpiarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/clear.png"))));
+		buscarButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/search.png"))));
+		imprimirButton.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/icons/pdf.png"))));
 	}
 
 	public JPanel getMainPanel() {
