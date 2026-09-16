@@ -21,13 +21,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-/**
- * Carga un .form del GUI Designer de IntelliJ en tiempo de ejecución y asigna
- * los campos "binding" por reflexión.
- *
- * Esto evita que las pantallas queden en blanco cuando IntelliJ recompila con
- * javac (sin javac2) y pisa las clases instrumentadas por Maven.
- */
 public final class FormUiLoader {
     private FormUiLoader() {}
 

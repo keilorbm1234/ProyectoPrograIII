@@ -28,11 +28,6 @@ public class FuncionarioService {
         return funcionarioDao.buscarPorIdONombre(texto);
     }
 
-    /**
-     * Crea o actualiza un funcionario. Si es nuevo, su clave por defecto
-     * es igual a su ID (regla de negocio del enunciado).
-     * @return el id del funcionario creado o actualizado.
-     */
     public String guardar(String id, String nombre, String telefono) throws Exception {
         if (id == null || id.trim().isEmpty()) {
             throw new ValidationException("Debe ingresar el ID del funcionario.");

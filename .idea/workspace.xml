@@ -8,50 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/actividades.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/ai.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/calendarizacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/categorias.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/checkDouble.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/clave.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/clear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/date.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/descartar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/detalles.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/funcionarios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/historico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/loginDialog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/ok.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pdf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/recursos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/reservas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/save.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/statistics.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Categorias.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Categorias.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Funcionarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Funcionarios.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Recursos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Recursos.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Reservas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Reservas.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/cambioclave/ViewCambioClave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/cambioclave/ViewCambioClave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/funcionarios/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/funcionarios/Funcionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/login/ViewLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/login/ViewLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/Recursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/Recursos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
