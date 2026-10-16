@@ -8,50 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b51fc1cc-c56b-4497-a7b6-97b85d4ce02b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/actividades.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/ai.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/calendarizacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/categorias.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/checkDouble.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/clave.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/clear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/date.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/descartar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/detalles.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/funcionarios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/historico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/loginDialog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/ok.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pdf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/recursos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/reservas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/save.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/statistics.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Categorias.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Categorias.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Funcionarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Funcionarios.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Recursos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Recursos.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Reservas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/Reservas.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/logic/ReservaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ControllerPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/ViewPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/actividades/Actividades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/calendarizacion/Calendarizacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/cambioclave/ViewCambioClave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/cambioclave/ViewCambioClave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/estadisticas/Estadisticas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/funcionarios/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/funcionarios/Funcionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/login/ViewLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/login/ViewLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/Recursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/recursos/Recursos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/ControllerReservas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resourcemanager/presentation/reservas/Reservas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +22,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="98" />
+    <option name="cachedIndexableFilesCount" value="128" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -164,33 +122,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "Maven.ProyectoPrograIII [clean].executor": "Run",
-    "Maven.ProyectoPrograIII [compile].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "develop",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/yense/Desktop/UNA/Progra 3/ProyectoPrograIII",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ProyectoPrograIII [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ProyectoPrograIII [compile].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yense/Desktop/UNA/Progra 3/ProyectoPrograIII&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\yense\Desktop\UNA\Progra 3\ProyectoPrograIII\src\main\resources\icons" />
@@ -219,8 +177,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.337" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.8665.337" />
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
       </set>
     </attachedChunks>
   </component>
